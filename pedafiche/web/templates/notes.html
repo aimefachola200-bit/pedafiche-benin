@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block corps %}<h1>Carnet de notes — {{ c['nom'] }}</h1>{% include "_classe_nav.html" %}
+{% if not n_eleves %}<div class="flash erreur">Ajoutez d'abord les élèves de la classe (menu « Élèves »).</div>{% endif %}
+<form class="carte" method="post"><h2>Nouvelle évaluation</h2><input type="hidden" name="_csrf" value="{{ csrf }}"><div class="grille">
+<label>Titre<br><input name="titre" required placeholder="Devoir n°1"></label>
+<label>Matière<br><select name="matiere">{% for k in matieres_cours %}<option value="{{ k }}">{{ mats[k] }}</option>{% endfor %}</select></label>
+<label>Date<br><input type="date" name="jour" value="{{ aujourdhui.isoformat() }}" required></label>
+<label>Barème (sur)<br><input name="bareme" value="10" size="4"></label><label>Coefficient<br><input name="coef" value="1" size="4"></label>
+<label>Période<br><select name="periode">{% for k, l in periodes %}<option value="{{ k }}">{{ l }}</option>{% endfor %}</select></label></div><p><button class="btn">Créer et saisir les notes</button></p></form>
+<table><tr><th>Date</th><th>Évaluation</th><th>Matière</th><th>Période</th><th>Barème</th><th>Coef.</th><th>Notes saisies</th></tr>
+{% for e in evs %}<tr><td>{{ e['jour'][8:10] }}/{{ e['jour'][5:7] }}</td><td><a href="{{ url_for('saisie_notes', cid=c['id'], eid=e['id']) }}">{{ e['titre'] }}</a></td><td>{{ mats.get(e['matiere'], e['matiere']) }}</td>
+<td>{{ e['periode'] }}</td><td>/ {{ '%g'|format(e['bareme']) }}</td><td>{{ '%g'|format(e['coef']) }}</td><td>{{ e['saisies'] }} / {{ n_eleves }}</td></tr>{% endfor %}</table>{% endblock %}

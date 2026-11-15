@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: pedafiche-benin
+    runtime: docker
+    plan: starter
+    healthCheckPath: /connexion
+    envVars:
+      - key: PEDAFICHE_SECRET
+        generateValue: true
+      - key: PEDAFICHE_DB
+        value: /data/pedafiche.db
+      - key: PEDAFICHE_CONCEPTEUR
+        value: Maître Aimé FACHOLA
+      - key: PEDAFICHE_CONCEPTEUR_TEL
+        value: "+229 01 96 51 03 33"
+    disk:
+      name: donnees
+      mountPath: /data
+      sizeGB: 1

@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block corps %}<h1>Progression annuelle — {{ LIB_COURS[c['cours']] }} {{ annee }}</h1>{% include "_classe_nav.html" %}
+{% if not plan %}<div class="carte">La planification officielle n'est pas fournie pour ce cours (maternelle : voir les fiches par domaine).</div>{% else %}
+<div class="barre"><a class="btn" href="{{ url_for('prog_pdf', cid=c['id']) }}" target="_blank">PDF</a><span class="petit">Cliquez sur une matière pour voir les fiches du mois. « répartition » = fiches réparties linéairement quand la planification ne cite pas de SA.</span></div>
+<div style="overflow-x:auto"><table><tr><th>Mois</th>{% for m in mats %}<th>{{ corpus.LIB_MAT[m] }}</th>{% endfor %}</tr>
+{% for l in plan %}<tr><td class="c0">{{ l['trimestre'] }} — {{ l['mois'] }}</td>{% for m in mats %}{% set x = l['matieres'][m] %}<td>{{ x['texte'] }}
+{% if x['fiches'] %}<div><a href="{{ url_for('fiches', cid=c['id'], matiere=m, mois=l['mois']) }}">{{ x['fiches']|length }} fiche(s)</a>{% if x['mode']=='lineaire' %} <span class="petit">(répartition)</span>{% endif %}</div>{% endif %}</td>{% endfor %}</tr>{% endfor %}</table></div>{% endif %}{% endblock %}

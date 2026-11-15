@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block corps %}<h1>Absences — {{ c['nom'] }}</h1>{% include "_classe_nav.html" %}
+<div class="barre"><form method="get" class="barre">Du <input type="date" name="du" value="{{ du }}"> au <input type="date" name="au" value="{{ au }}"><button class="btn sec">Afficher</button></form>
+<a class="btn" href="{{ url_for('absences_pdf', cid=c['id'], du=du, au=au) }}" target="_blank">Bilan (PDF)</a></div>
+{% if alertes %}<div class="flash erreur">{{ alertes|length }} élève(s) avec 3 absences non justifiées ou plus : contactez les parents.</div>{% endif %}
+<table><tr><th>N°</th><th>Élève</th><th>Absences</th><th>Non justifiées</th><th>Retards</th><th>Alerte</th></tr>
+{% for e in liste %}{% set x = b.get(e['id'], {}) %}<tr class="{{ 'nouveau' if e['id'] in alertes }}"><td>{{ loop.index }}</td><td>{{ e['nom'] }} {{ e['prenom'] }}{% if e['telephone'] %} <span class="petit">{{ e['telephone'] }}</span>{% endif %}</td>
+<td>{{ x.get('A',0) }}</td><td>{{ x.get('A_nj',0) }}</td><td>{{ x.get('R',0) }}</td><td>{{ 'À contacter' if e['id'] in alertes }}</td></tr>{% endfor %}</table>{% endblock %}

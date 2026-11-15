@@ -1,0 +1,107 @@
+{
+ "2026-2027": {
+  "reference": "Arrêté interministériel année 2026 n° 017/MEMP/MES/MESRS-FT/DC/SGM/DIIP/DEP/DEM/DEC/IGPM/DESG/DESTFP/SA 015SGG26 fixant le calendrier de l'année scolaire 2026-2027 (articles 1 à 7)",
+  "source": "MEMP / MES / MESRS-FT, Cotonou, le 28 juillet 2026",
+  "lignes": [
+   {
+    "type": "pre_rentree",
+    "libelle": "Pré-rentrée scolaire",
+    "debut": "2026-09-07",
+    "fin": "2026-09-11",
+    "precision": "",
+    "duree": "1 semaine",
+    "observations": "Article 1"
+   },
+   {
+    "type": "trimestre",
+    "libelle": "Premier trimestre",
+    "debut": "2026-09-14",
+    "fin": "2026-12-18",
+    "precision": "après les cours de l'après-midi",
+    "duree": "14 semaines de travail",
+    "observations": "Article 2"
+   },
+   {
+    "type": "conges",
+    "libelle": "Congés de fin du premier trimestre",
+    "debut": "2026-12-18",
+    "fin": "2027-01-03",
+    "precision": "après les cours ; dimanche 03 janvier inclus",
+    "duree": "2 semaines",
+    "observations": "Article 2"
+   },
+   {
+    "type": "trimestre",
+    "libelle": "Deuxième trimestre",
+    "debut": "2027-01-04",
+    "fin": "2027-03-24",
+    "precision": "après les cours",
+    "duree": "10 semaines 3 jours de travail",
+    "observations": "Article 3"
+   },
+   {
+    "type": "conges",
+    "libelle": "Congés de détente",
+    "debut": "2027-02-19",
+    "fin": "2027-02-28",
+    "precision": "après les cours ; dimanche 28 février inclus",
+    "duree": "1 semaine",
+    "observations": "Article 3"
+   },
+   {
+    "type": "conges",
+    "libelle": "Congés de fin du deuxième trimestre",
+    "debut": "2027-03-24",
+    "fin": "2027-04-07",
+    "precision": "après les cours ; mercredi 07 avril inclus",
+    "duree": "2 semaines",
+    "observations": "Article 3"
+   },
+   {
+    "type": "trimestre",
+    "libelle": "Troisième trimestre",
+    "debut": "2027-04-08",
+    "fin": "2027-06-25",
+    "precision": "après les cours",
+    "duree": "11 semaines 2 jours",
+    "observations": "Article 4"
+   },
+   {
+    "type": "vacances",
+    "libelle": "Grandes vacances",
+    "debut": "2027-06-25",
+    "fin": "2027-09-12",
+    "precision": "après les cours ; reprise des activités pédagogiques le lundi 13 septembre 2027",
+    "duree": "",
+    "observations": "Article 5"
+   },
+   {
+    "type": "ferie",
+    "libelle": "Fête des cultes et traditions du Bénin",
+    "debut": "2027-01-07",
+    "fin": "2027-01-08",
+    "precision": "jeudi 07 et vendredi 08 janvier 2027",
+    "duree": "2 jours",
+    "observations": "Article 6"
+   },
+   {
+    "type": "ferie",
+    "libelle": "Ascension",
+    "debut": "2027-05-06",
+    "fin": "2027-05-06",
+    "precision": "jeudi",
+    "duree": "1 jour",
+    "observations": "Article 6"
+   },
+   {
+    "type": "ferie",
+    "libelle": "Lundi de Pentecôte",
+    "debut": "2027-05-17",
+    "fin": "2027-05-17",
+    "precision": "lundi",
+    "duree": "1 jour",
+    "observations": "Article 6 — les autres jours fériés sont déclarés par le Ministre chargé de la Fonction publique"
+   }
+  ]
+ }
+}

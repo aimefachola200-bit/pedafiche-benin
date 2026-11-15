@@ -1,0 +1,1571 @@
+[
+ {
+  "id": "rx-ci-conj-01",
+  "cours": "CI",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe dit ce que l'on fait",
+  "regle": "Le verbe est un mot qui dit ce que quelqu'un fait. Dans « Awa chante », le verbe est « chante ».",
+  "methode": "Je demande : qu'est-ce que la personne fait ? Le mot qui répond est le verbe.",
+  "exemple": "Koffi mange l'igname pilée. Que fait Koffi ? Il mange. Le verbe est « mange ».",
+  "exercices": [
+   {
+    "q": "Trouve le verbe : Le coq chante.",
+    "r": "chante"
+   },
+   {
+    "q": "Trouve le verbe : Les enfants jouent dans la cour.",
+    "r": "jouent"
+   },
+   {
+    "q": "Trouve le verbe : Maman lave le linge.",
+    "r": "lave"
+   }
+  ],
+  "vocabulaire": [
+   "verbe",
+   "phrase",
+   "action"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Octobre",
+  "trimestre": "I",
+  "ordre": [
+   1,
+   80,
+   1
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ci-conj-02",
+  "cours": "CI",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Aujourd'hui, hier, demain",
+  "regle": "Aujourd'hui, c'est maintenant : c'est le présent. Hier, c'est déjà fini : c'est le passé. Demain, ça n'est pas encore arrivé : c'est le futur.",
+  "methode": "Je cherche le petit mot qui dit quand : aujourd'hui, hier ou demain.",
+  "exemple": "Hier, Awa a lavé le linge. Aujourd'hui, elle lave le linge. Demain, elle lavera le linge.",
+  "exercices": [
+   {
+    "q": "Hier, Koffi a joué au ballon. C'est le présent, le passé ou le futur ?",
+    "r": "le passé"
+   },
+   {
+    "q": "Demain, nous irons au marché. C'est le présent, le passé ou le futur ?",
+    "r": "le futur"
+   },
+   {
+    "q": "Aujourd'hui, je lis un livre. C'est le présent, le passé ou le futur ?",
+    "r": "le présent"
+   }
+  ],
+  "vocabulaire": [
+   "présent",
+   "passé",
+   "futur"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Novembre",
+  "trimestre": "I",
+  "ordre": [
+   2,
+   80,
+   2
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ci-conj-03",
+  "cours": "CI",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Je, tu, il, elle : qui fait l'action ?",
+  "regle": "Pour dire qui fait l'action, on utilise : je (moi), tu (toi), il (un garçon), elle (une fille). Le verbe change un peu : je chante, tu chantes, il chante.",
+  "methode": "Je regarde qui fait l'action, puis j'écris le verbe qui va avec.",
+  "exemple": "Je chante. Tu chantes. Il chante. Elle chante.",
+  "exercices": [
+   {
+    "q": "Complète : Tu … (chanter).",
+    "r": "chantes"
+   },
+   {
+    "q": "Complète : Elle … (danser).",
+    "r": "danse"
+   },
+   {
+    "q": "Complète : Je … (jouer).",
+    "r": "joue"
+   }
+  ],
+  "vocabulaire": [
+   "je",
+   "tu",
+   "il",
+   "elle"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Décembre",
+  "trimestre": "I",
+  "ordre": [
+   3,
+   80,
+   3
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ci-conj-04",
+  "cours": "CI",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe être : je suis, tu es, il est",
+  "regle": "Le verbe être dit comment on est ou où on est : je suis, tu es, il est, elle est.",
+  "methode": "Je regarde qui parle ou de qui on parle, puis je choisis suis, es ou est.",
+  "exemple": "Je suis à l'école. Tu es grand. Awa est contente.",
+  "exercices": [
+   {
+    "q": "Complète : Je … content.",
+    "r": "suis"
+   },
+   {
+    "q": "Complète : Tu … en classe.",
+    "r": "es"
+   },
+   {
+    "q": "Complète : Koffi … grand.",
+    "r": "est"
+   }
+  ],
+  "vocabulaire": [
+   "être",
+   "suis",
+   "es",
+   "est"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Janvier",
+  "trimestre": "II",
+  "ordre": [
+   4,
+   80,
+   4
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ci-conj-05",
+  "cours": "CI",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe avoir : j'ai, tu as, il a",
+  "regle": "Le verbe avoir dit ce que l'on possède : j'ai, tu as, il a, elle a. Devant une voyelle, je devient j' : j'ai.",
+  "methode": "Je regarde qui parle ou de qui on parle, puis je choisis ai, as ou a.",
+  "exemple": "J'ai un cahier. Tu as un stylo. Koffi a un ballon.",
+  "exercices": [
+   {
+    "q": "Complète : J'… une ardoise.",
+    "r": "ai"
+   },
+   {
+    "q": "Complète : Tu … faim.",
+    "r": "as"
+   },
+   {
+    "q": "Complète : Awa … une robe neuve.",
+    "r": "a"
+   }
+  ],
+  "vocabulaire": [
+   "avoir",
+   "ai",
+   "as",
+   "a"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Février",
+  "trimestre": "II",
+  "ordre": [
+   5,
+   80,
+   5
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ci-conj-06",
+  "cours": "CI",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Un seul ou plusieurs : il chante, ils chantent",
+  "regle": "Quand une seule personne agit, le verbe est au singulier : il chante. Quand plusieurs personnes agissent, le verbe est au pluriel : ils chantent. À l'écrit, le verbe prend souvent -nt à la fin.",
+  "methode": "Je compte qui agit : un seul ou plusieurs ?",
+  "exemple": "L'oiseau chante. Les oiseaux chantent.",
+  "exercices": [
+   {
+    "q": "Complète : Les filles (danser) …",
+    "r": "dansent"
+   },
+   {
+    "q": "Complète : L'enfant (jouer) …",
+    "r": "joue"
+   },
+   {
+    "q": "Complète : Les poules (picorer) …",
+    "r": "picorent"
+   }
+  ],
+  "vocabulaire": [
+   "singulier",
+   "pluriel"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Mars",
+  "trimestre": "II",
+  "ordre": [
+   6,
+   80,
+   6
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cp-conj-01",
+  "cours": "CP",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "L'infinitif : le nom du verbe",
+  "regle": "L'infinitif est le nom du verbe : c'est la forme qu'on trouve dans le dictionnaire. Il se termine souvent par -er (chanter), parfois par -ir (finir) ou -re (prendre).",
+  "methode": "Pour trouver l'infinitif, je mets « je veux » devant : je veux manger.",
+  "exemple": "Elles dansent → danser ; tu finis → finir ; il prend → prendre.",
+  "exercices": [
+   {
+    "q": "Quel est l'infinitif de « elle mange » ?",
+    "r": "manger"
+   },
+   {
+    "q": "Quel est l'infinitif de « ils jouent » ?",
+    "r": "jouer"
+   },
+   {
+    "q": "Quel est l'infinitif de « tu finis » ?",
+    "r": "finir"
+   }
+  ],
+  "vocabulaire": [
+   "infinitif",
+   "dictionnaire"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Octobre",
+  "trimestre": "I",
+  "ordre": [
+   1,
+   80,
+   1
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cp-conj-02",
+  "cours": "CP",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le présent des verbes en -er",
+  "regle": "Au présent, les verbes en -er ont les terminaisons -e, -es, -e, -ons, -ez, -ent : je chante, tu chantes, il chante, nous chantons, vous chantez, ils chantent.",
+  "methode": "Je trouve l'infinitif, j'enlève -er pour garder le radical, puis j'ajoute la terminaison de la personne.",
+  "exemple": "danser → je danse, tu danses, il danse, nous dansons, vous dansez, ils dansent.",
+  "exercices": [
+   {
+    "q": "Nous (chanter) …",
+    "r": "chantons"
+   },
+   {
+    "q": "Vous (danser) …",
+    "r": "dansez"
+   },
+   {
+    "q": "Ils (jouer) …",
+    "r": "jouent"
+   }
+  ],
+  "vocabulaire": [
+   "radical",
+   "terminaison",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Novembre",
+  "trimestre": "I",
+  "ordre": [
+   2,
+   80,
+   2
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cp-conj-03",
+  "cours": "CP",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe être au présent",
+  "regle": "Je suis, tu es, il (elle) est, nous sommes, vous êtes, ils (elles) sont.",
+  "methode": "Je cherche qui fait l'action et je choisis la forme qui va avec.",
+  "exemple": "Nous sommes à l'école. Vous êtes en classe. Les élèves sont attentifs.",
+  "exercices": [
+   {
+    "q": "Complète : Nous … au marché.",
+    "r": "sommes"
+   },
+   {
+    "q": "Complète : Vous … contents.",
+    "r": "êtes"
+   },
+   {
+    "q": "Complète : Les élèves … sages.",
+    "r": "sont"
+   }
+  ],
+  "vocabulaire": [
+   "être",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Décembre",
+  "trimestre": "I",
+  "ordre": [
+   3,
+   80,
+   3
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cp-conj-04",
+  "cours": "CP",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe avoir au présent",
+  "regle": "J'ai, tu as, il (elle) a, nous avons, vous avez, ils (elles) ont.",
+  "methode": "Je cherche qui fait l'action et je choisis la forme qui va avec.",
+  "exemple": "Nous avons un jardin. Vous avez un cahier. Les enfants ont des livres.",
+  "exercices": [
+   {
+    "q": "Complète : Nous … deux chèvres.",
+    "r": "avons"
+   },
+   {
+    "q": "Complète : Vous … raison.",
+    "r": "avez"
+   },
+   {
+    "q": "Complète : Elles … soif.",
+    "r": "ont"
+   }
+  ],
+  "vocabulaire": [
+   "avoir",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Janvier",
+  "trimestre": "II",
+  "ordre": [
+   4,
+   80,
+   4
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cp-conj-05",
+  "cours": "CP",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe aller au présent",
+  "regle": "Aller est un verbe à part : je vais, tu vas, il (elle) va, nous allons, vous allez, ils (elles) vont.",
+  "methode": "Je cherche qui fait l'action et je choisis la forme qui va avec.",
+  "exemple": "Je vais à l'école. Nous allons au marché de Pobè. Ils vont au champ.",
+  "exercices": [
+   {
+    "q": "Complète : Tu … au puits.",
+    "r": "vas"
+   },
+   {
+    "q": "Complète : Nous … au marché.",
+    "r": "allons"
+   },
+   {
+    "q": "Complète : Les élèves … en récréation.",
+    "r": "vont"
+   }
+  ],
+  "vocabulaire": [
+   "aller",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Février",
+  "trimestre": "II",
+  "ordre": [
+   5,
+   80,
+   5
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cp-conj-06",
+  "cours": "CP",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe faire au présent",
+  "regle": "Je fais, tu fais, il (elle) fait, nous faisons, vous faites, ils (elles) font.",
+  "methode": "Je cherche qui fait l'action et je choisis la forme qui va avec.",
+  "exemple": "Maman fait la cuisine. Nous faisons nos devoirs. Les enfants font du sport.",
+  "exercices": [
+   {
+    "q": "Complète : Tu … ton lit.",
+    "r": "fais"
+   },
+   {
+    "q": "Complète : Vous … du bruit.",
+    "r": "faites"
+   },
+   {
+    "q": "Complète : Ils … leurs devoirs.",
+    "r": "font"
+   }
+  ],
+  "vocabulaire": [
+   "faire",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Mars",
+  "trimestre": "II",
+  "ordre": [
+   6,
+   80,
+   6
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cp-conj-07",
+  "cours": "CP",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe s'accorde avec le sujet",
+  "regle": "Le verbe s'accorde avec son sujet. Si le sujet est au singulier, le verbe est au singulier (il joue) ; si le sujet est au pluriel, le verbe est au pluriel (ils jouent).",
+  "methode": "Je pose la question « qui est-ce qui ? » devant le verbe. La réponse est le sujet.",
+  "exemple": "La petite fille chante. Les petites filles chantent.",
+  "exercices": [
+   {
+    "q": "Complète : La petite fille (chanter) …",
+    "r": "chante"
+   },
+   {
+    "q": "Complète : Les petites filles (chanter) …",
+    "r": "chantent"
+   },
+   {
+    "q": "Complète : Koffi et Awa (jouer) …",
+    "r": "jouent"
+   }
+  ],
+  "vocabulaire": [
+   "sujet",
+   "accord"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Avril",
+  "trimestre": "III",
+  "ordre": [
+   7,
+   80,
+   7
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce1-conj-01",
+  "cours": "CE1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "La phrase négative : ne … pas",
+  "regle": "Pour dire non, on entoure le verbe avec ne … pas. Devant une voyelle, ne devient n'.",
+  "methode": "Je place ne avant le verbe et pas après le verbe.",
+  "exemple": "Koffi ne joue pas. Awa n'écoute pas.",
+  "exercices": [
+   {
+    "q": "Mets à la forme négative : Il mange.",
+    "r": "Il ne mange pas."
+   },
+   {
+    "q": "Mets à la forme négative : Nous chantons.",
+    "r": "Nous ne chantons pas."
+   },
+   {
+    "q": "Mets à la forme négative : Tu aimes le piment.",
+    "r": "Tu n'aimes pas le piment."
+   }
+  ],
+  "vocabulaire": [
+   "forme négative",
+   "ne … pas"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Octobre",
+  "trimestre": "I",
+  "ordre": [
+   1,
+   80,
+   1
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce1-conj-02",
+  "cours": "CE1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Être et avoir à l'imparfait",
+  "regle": "Être : j'étais, tu étais, il était, nous étions, vous étiez, ils étaient. Avoir : j'avais, tu avais, il avait, nous avions, vous aviez, ils avaient. L'imparfait dit ce qui durait ou se répétait autrefois.",
+  "methode": "Je repère « autrefois », « quand j'étais petit », puis j'utilise l'imparfait.",
+  "exemple": "Autrefois, nous étions petits et nous avions peur du noir.",
+  "exercices": [
+   {
+    "q": "Complète : Hier, nous … fatigués. (être)",
+    "r": "étions"
+   },
+   {
+    "q": "Complète : Autrefois, tu … un petit chien. (avoir)",
+    "r": "avais"
+   },
+   {
+    "q": "Complète : Les enfants … contents. (être)",
+    "r": "étaient"
+   }
+  ],
+  "vocabulaire": [
+   "imparfait",
+   "autrefois"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Novembre",
+  "trimestre": "I",
+  "ordre": [
+   2,
+   80,
+   2
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce1-conj-03",
+  "cours": "CE1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe prendre au présent",
+  "regle": "Je prends, tu prends, il (elle) prend, nous prenons, vous prenez, ils (elles) prennent.",
+  "methode": "Je me souviens : au pluriel, nous prenons s'écrit avec un seul n, mais ils prennent en a deux.",
+  "exemple": "Je prends mon cartable. Vous prenez le chemin de l'école. Ils prennent leur repas.",
+  "exercices": [
+   {
+    "q": "Complète : Je … mon cartable.",
+    "r": "prends"
+   },
+   {
+    "q": "Complète : Vous … le bus.",
+    "r": "prenez"
+   },
+   {
+    "q": "Complète : Ils … leur repas.",
+    "r": "prennent"
+   }
+  ],
+  "vocabulaire": [
+   "prendre",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Janvier",
+  "trimestre": "II",
+  "ordre": [
+   4,
+   80,
+   3
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce1-conj-04",
+  "cours": "CE1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe et son sujet : bien accorder",
+  "regle": "Le sujet peut être loin du verbe. Le verbe s'accorde toujours avec son sujet, pas avec le mot placé juste avant lui.",
+  "methode": "Je cherche le sujet avec « qui est-ce qui ? », puis j'accorde le verbe.",
+  "exemple": "Les enfants du village chantent. Le chant des oiseaux réveille le village.",
+  "exercices": [
+   {
+    "q": "Complète : Les élèves de la classe (écouter) … le maître.",
+    "r": "écoutent"
+   },
+   {
+    "q": "Complète : Le chant des oiseaux (réveiller) … le village.",
+    "r": "réveille"
+   },
+   {
+    "q": "Complète : Awa et sa sœur (puiser) … de l'eau.",
+    "r": "puisent"
+   }
+  ],
+  "vocabulaire": [
+   "sujet",
+   "accord"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Février",
+  "trimestre": "II",
+  "ordre": [
+   5,
+   80,
+   4
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce1-conj-05",
+  "cours": "CE1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe venir au présent",
+  "regle": "Je viens, tu viens, il (elle) vient, nous venons, vous venez, ils (elles) viennent.",
+  "methode": "Au singulier, je viens, tu viens, il vient. Au pluriel, nous venons, vous venez, ils viennent.",
+  "exemple": "Je viens de l'école. Nous venons de Cotonou. Elles viennent à pied.",
+  "exercices": [
+   {
+    "q": "Complète : Je … de l'école.",
+    "r": "viens"
+   },
+   {
+    "q": "Complète : Nous … de Cotonou.",
+    "r": "venons"
+   },
+   {
+    "q": "Complète : Elles … à pied.",
+    "r": "viennent"
+   }
+  ],
+  "vocabulaire": [
+   "venir",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Avril",
+  "trimestre": "III",
+  "ordre": [
+   7,
+   80,
+   5
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce1-conj-06",
+  "cours": "CE1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe pouvoir au présent",
+  "regle": "Je peux, tu peux, il (elle) peut, nous pouvons, vous pouvez, ils (elles) peuvent.",
+  "methode": "Pouvoir dit ce qu'on est capable de faire ou ce qu'on a le droit de faire.",
+  "exemple": "Je peux porter ce seau. Vous pouvez sortir. Elles peuvent jouer.",
+  "exercices": [
+   {
+    "q": "Complète : Tu … porter ce seau.",
+    "r": "peux"
+   },
+   {
+    "q": "Complète : Nous … sortir.",
+    "r": "pouvons"
+   },
+   {
+    "q": "Complète : Ils … courir vite.",
+    "r": "peuvent"
+   }
+  ],
+  "vocabulaire": [
+   "pouvoir",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Mai",
+  "trimestre": "III",
+  "ordre": [
+   8,
+   80,
+   6
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce2-conj-01",
+  "cours": "CE2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "é, er, ez : comment choisir ?",
+  "regle": "À la fin d'un verbe, le son [e] s'écrit é (participe passé), er (infinitif) ou ez (avec vous). Je remplace par « vendre » : si ça va, j'écris er. Je remplace par « vendu » : si ça va, j'écris é.",
+  "methode": "Je teste avec vendre / vendu. Avec le sujet « vous », j'écris ez.",
+  "exemple": "Il va chanter (il va vendre). Elle a lavé (elle a vendu). Vous portez (sujet : vous).",
+  "exercices": [
+   {
+    "q": "Complète avec é, er ou ez : Elle a lav… le linge.",
+    "r": "lavé"
+   },
+   {
+    "q": "Complète avec é, er ou ez : Vous port… des seaux.",
+    "r": "portez"
+   },
+   {
+    "q": "Complète avec é, er ou ez : Il va chant… à la fête.",
+    "r": "chanter"
+   }
+  ],
+  "vocabulaire": [
+   "infinitif",
+   "participe passé"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Octobre",
+  "trimestre": "I",
+  "ordre": [
+   1,
+   80,
+   1
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce2-conj-02",
+  "cours": "CE2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le présent des verbes en -cer et -ger",
+  "regle": "Avec nous, les verbes en -cer prennent une cédille (nous commençons) et les verbes en -ger gardent un e (nous mangeons), pour garder le même son.",
+  "methode": "Devant -ons, j'écris ç ou ge pour que la lettre c ou g garde son son doux.",
+  "exemple": "Nous commençons le travail. Nous mangeons du riz.",
+  "exercices": [
+   {
+    "q": "Complète : Nous (commencer) … le travail.",
+    "r": "commençons"
+   },
+   {
+    "q": "Complète : Nous (manger) … du riz.",
+    "r": "mangeons"
+   },
+   {
+    "q": "Complète : Ils (lancer) … le ballon.",
+    "r": "lancent"
+   }
+  ],
+  "vocabulaire": [
+   "cédille",
+   "radical"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Novembre",
+  "trimestre": "I",
+  "ordre": [
+   2,
+   80,
+   2
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce2-conj-03",
+  "cours": "CE2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Pouvoir et vouloir au présent",
+  "regle": "Pouvoir : je peux, tu peux, il peut, nous pouvons, vous pouvez, ils peuvent. Vouloir : je veux, tu veux, il veut, nous voulons, vous voulez, ils veulent.",
+  "methode": "Au singulier, je mets x, x, t. Au pluriel, le radical change : ils peuvent, ils veulent.",
+  "exemple": "Tu peux venir avec nous. Nous voulons partir. Ils veulent jouer.",
+  "exercices": [
+   {
+    "q": "Complète : Tu … venir avec nous. (pouvoir)",
+    "r": "peux"
+   },
+   {
+    "q": "Complète : Nous … partir. (vouloir)",
+    "r": "voulons"
+   },
+   {
+    "q": "Complète : Ils … jouer. (vouloir)",
+    "r": "veulent"
+   }
+  ],
+  "vocabulaire": [
+   "pouvoir",
+   "vouloir"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Janvier",
+  "trimestre": "II",
+  "ordre": [
+   4,
+   80,
+   3
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce2-conj-04",
+  "cours": "CE2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le futur simple : les radicaux irréguliers",
+  "regle": "Certains verbes changent de radical au futur : être → je serai, avoir → j'aurai, aller → j'irai, faire → je ferai, venir → je viendrai, voir → je verrai, pouvoir → je pourrai, vouloir → je voudrai. Les terminaisons sont toujours -ai, -as, -a, -ons, -ez, -ont.",
+  "methode": "J'apprends le radical du futur, puis j'ajoute la terminaison.",
+  "exemple": "Demain, nous irons au champ. L'an prochain, je ferai du football.",
+  "exercices": [
+   {
+    "q": "Complète : Demain, nous (aller) … au champ.",
+    "r": "irons"
+   },
+   {
+    "q": "Complète : L'an prochain, je (faire) … du football.",
+    "r": "ferai"
+   },
+   {
+    "q": "Complète : Vous (venir) … nous voir.",
+    "r": "viendrez"
+   }
+  ],
+  "vocabulaire": [
+   "futur",
+   "radical"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Février",
+  "trimestre": "II",
+  "ordre": [
+   5,
+   80,
+   4
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce2-conj-05",
+  "cours": "CE2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le verbe mettre au présent",
+  "regle": "Je mets, tu mets, il (elle) met, nous mettons, vous mettez, ils (elles) mettent. Permettre et promettre se conjuguent de la même façon.",
+  "methode": "Au singulier : mets, mets, met. Au pluriel, je garde les deux t.",
+  "exemple": "Je mets la table. Nous mettons nos cahiers dans le sac.",
+  "exercices": [
+   {
+    "q": "Complète : Je … la table.",
+    "r": "mets"
+   },
+   {
+    "q": "Complète : Nous … nos cahiers dans le sac.",
+    "r": "mettons"
+   },
+   {
+    "q": "Complète : Elles … leurs pagnes.",
+    "r": "mettent"
+   }
+  ],
+  "vocabulaire": [
+   "mettre",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Mars",
+  "trimestre": "II",
+  "ordre": [
+   6,
+   80,
+   5
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-ce2-conj-06",
+  "cours": "CE2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "L'imparfait des verbes en -cer et -ger",
+  "regle": "À l'imparfait, les verbes en -cer prennent ç devant a (je commençais) et les verbes en -ger prennent ge devant a (je mangeais). Avec nous et vous, il n'y a pas de cédille ni de e : nous commencions, nous mangions.",
+  "methode": "Je regarde la lettre qui suit : devant a, j'écris ç ou ge ; devant i, rien de plus.",
+  "exemple": "Autrefois, je mangeais à midi. Autrefois, nous commencions à sept heures.",
+  "exercices": [
+   {
+    "q": "Complète : Autrefois, je (manger) … à midi.",
+    "r": "mangeais"
+   },
+   {
+    "q": "Complète : Autrefois, nous (commencer) … le travail à sept heures.",
+    "r": "commencions"
+   },
+   {
+    "q": "Complète : Autrefois, les enfants (lancer) … des cailloux.",
+    "r": "lançaient"
+   }
+  ],
+  "vocabulaire": [
+   "imparfait",
+   "cédille"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Mai",
+  "trimestre": "III",
+  "ordre": [
+   8,
+   80,
+   6
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm1-conj-01",
+  "cours": "CM1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Les verbes en -yer au présent",
+  "regle": "Les verbes en -oyer, -uyer, -ayer changent y en i devant un e muet : je nettoie, tu nettoies, il nettoie, ils nettoient. Le y revient avec nous et vous : nous nettoyons, vous nettoyez. Payer admet les deux formes : je paie ou je paye.",
+  "methode": "Si la terminaison est muette (e, es, ent), j'écris i ; si elle se prononce (ons, ez), j'écris y.",
+  "exemple": "Je nettoie la cour. Nous envoyons une lettre. Ils essuient les bancs.",
+  "exercices": [
+   {
+    "q": "Complète : Je (nettoyer) … la cour.",
+    "r": "nettoie"
+   },
+   {
+    "q": "Complète : Nous (envoyer) … une lettre.",
+    "r": "envoyons"
+   },
+   {
+    "q": "Complète : Ils (essuyer) … les bancs.",
+    "r": "essuient"
+   }
+  ],
+  "vocabulaire": [
+   "verbe en -yer",
+   "e muet"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Octobre",
+  "trimestre": "I",
+  "ordre": [
+   1,
+   80,
+   1
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm1-conj-02",
+  "cours": "CM1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "L'imparfait des verbes en -ier, -uer, -ouer",
+  "regle": "À l'imparfait, avec nous et vous, la terminaison -ions ou -iez s'ajoute au radical : nous jouions, vous jouiez ; mais les verbes qui finissent par -ier gardent leur i : nous étudiions, vous étudiiez.",
+  "methode": "Je cherche le radical, puis j'ajoute -ions ou -iez ; pour étudier ou crier, j'entends deux i.",
+  "exemple": "Nous étudiions le soir. Nous jouions dans la cour.",
+  "exercices": [
+   {
+    "q": "Complète : Nous (étudier) … hier soir.",
+    "r": "étudiions"
+   },
+   {
+    "q": "Complète : Quand vous étiez petits, vous (crier) … très fort.",
+    "r": "criiez"
+   },
+   {
+    "q": "Complète : Nous (jouer) … dans la cour.",
+    "r": "jouions"
+   }
+  ],
+  "vocabulaire": [
+   "imparfait",
+   "radical"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Novembre",
+  "trimestre": "I",
+  "ordre": [
+   2,
+   80,
+   2
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm1-conj-03",
+  "cours": "CM1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Être et avoir au subjonctif présent",
+  "regle": "Être : que je sois, que tu sois, qu'il soit, que nous soyons, que vous soyez, qu'ils soient. Avoir : que j'aie, que tu aies, qu'il ait, que nous ayons, que vous ayez, qu'ils aient. On utilise le subjonctif après il faut que, je voudrais que, je souhaite que.",
+  "methode": "Je repère il faut que, je veux que, je souhaite que : j'emploie alors le subjonctif.",
+  "exemple": "Il faut que tu sois à l'heure. Je voudrais qu'il ait du courage.",
+  "exercices": [
+   {
+    "q": "Complète : Il faut que tu (être) … à l'heure.",
+    "r": "sois"
+   },
+   {
+    "q": "Complète : Je voudrais qu'il (avoir) … du courage.",
+    "r": "ait"
+   },
+   {
+    "q": "Complète : Il faut que nous (être) … prudents.",
+    "r": "soyons"
+   }
+  ],
+  "vocabulaire": [
+   "subjonctif",
+   "il faut que"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Décembre",
+  "trimestre": "I",
+  "ordre": [
+   3,
+   80,
+   3
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm1-conj-04",
+  "cours": "CM1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "L'impératif de aller, faire, dire, prendre",
+  "regle": "Aller : va, allons, allez. Faire : fais, faisons, faites. Dire : dis, disons, dites. Prendre : prends, prenons, prenez. À l'impératif, on n'écrit pas le sujet.",
+  "methode": "Je repère un ordre ou un conseil : j'utilise la forme sans sujet. Va prend un s devant y : vas-y.",
+  "exemple": "Va au tableau. Faites attention. Prends ton cahier.",
+  "exercices": [
+   {
+    "q": "Complète : (Aller) … au tableau, Awa.",
+    "r": "Va"
+   },
+   {
+    "q": "Complète : (Faire) … attention, les enfants.",
+    "r": "Faites"
+   },
+   {
+    "q": "Complète : (Prendre) … ton cahier, Koffi.",
+    "r": "Prends"
+   }
+  ],
+  "vocabulaire": [
+   "impératif",
+   "ordre"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Février",
+  "trimestre": "II",
+  "ordre": [
+   5,
+   80,
+   4
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm1-conj-05",
+  "cours": "CM1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Futur ou conditionnel ? -rai ou -rais",
+  "regle": "Le futur exprime quelque chose de certain : je mangerai demain. Le conditionnel exprime un souhait ou une condition : je mangerais si j'avais faim. Les deux ont le même radical, mais les terminaisons diffèrent : -ai, -as, -a au futur ; -ais, -ais, -ait au conditionnel.",
+  "methode": "Je remplace je par nous : nous mangerons (futur) ou nous mangerions (conditionnel).",
+  "exemple": "Demain, je partirai tôt. Si j'avais le temps, je viendrais te voir.",
+  "exercices": [
+   {
+    "q": "Complète au futur : Demain, je (partir) … tôt.",
+    "r": "partirai"
+   },
+   {
+    "q": "Complète au conditionnel : Si j'avais le temps, je (venir) … te voir.",
+    "r": "viendrais"
+   },
+   {
+    "q": "Complète au conditionnel : Si tu travaillais, tu (réussir) … .",
+    "r": "réussirais"
+   }
+  ],
+  "vocabulaire": [
+   "futur",
+   "conditionnel"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Mars",
+  "trimestre": "II",
+  "ordre": [
+   6,
+   80,
+   5
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm1-conj-06",
+  "cours": "CM1",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le présent de partir, sortir, dormir",
+  "regle": "Au singulier, ces verbes perdent la dernière consonne du radical : je pars, tu pars, il part ; je sors ; je dors. Au pluriel, elle revient : nous partons, vous partez, ils partent.",
+  "methode": "Au singulier, je n'entends pas la consonne finale : je pars, il part. Au pluriel, je l'entends : nous partons.",
+  "exemple": "Je sors de la classe. Nous partons au champ. Ils dorment sous la moustiquaire.",
+  "exercices": [
+   {
+    "q": "Complète : Je (sortir) … de la classe.",
+    "r": "sors"
+   },
+   {
+    "q": "Complète : Ils (dormir) … sous la moustiquaire.",
+    "r": "dorment"
+   },
+   {
+    "q": "Complète : Nous (partir) … au champ.",
+    "r": "partons"
+   }
+  ],
+  "vocabulaire": [
+   "troisième groupe",
+   "présent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Mai",
+  "trimestre": "III",
+  "ordre": [
+   8,
+   80,
+   6
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm2-conj-01",
+  "cours": "CM2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "L'accord du participe passé avec avoir",
+  "regle": "Avec avoir, le participe passé s'accorde avec le complément d'objet direct (COD) seulement si ce COD est placé avant le verbe. Sinon, il reste invariable.",
+  "methode": "Je cherche le COD (j'ai mangé quoi ?). S'il est avant le verbe, j'accorde ; s'il est après, je n'accorde pas.",
+  "exemple": "J'ai mangé les mangues. Les mangues que j'ai mangées étaient sucrées.",
+  "exercices": [
+   {
+    "q": "Complète : Les mangues que Koffi a (cueillir) … étaient mûres.",
+    "r": "cueillies"
+   },
+   {
+    "q": "Complète : Voici la lettre que j'ai (écrire) … .",
+    "r": "écrite"
+   },
+   {
+    "q": "Complète : Les élèves ont (terminer) … leurs devoirs.",
+    "r": "terminé"
+   }
+  ],
+  "vocabulaire": [
+   "participe passé",
+   "COD"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Septembre",
+  "trimestre": "I",
+  "ordre": [
+   0,
+   80,
+   1
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm2-conj-02",
+  "cours": "CM2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le participe passé des verbes du 3e groupe",
+  "regle": "Les verbes du 3e groupe ont des participes passés variés : prendre → pris, mettre → mis, faire → fait, dire → dit, écrire → écrit, voir → vu, vouloir → voulu, pouvoir → pu, venir → venu, ouvrir → ouvert.",
+  "methode": "Pour savoir si la fin est é, i, u, s ou t, je mets le participe au féminin : pris → prise, écrit → écrite.",
+  "exemple": "Il a pris son cahier. La lettre est écrite. Elle a ouvert la porte.",
+  "exercices": [
+   {
+    "q": "Écris le participe passé de « prendre ».",
+    "r": "pris"
+   },
+   {
+    "q": "Écris le participe passé de « écrire ».",
+    "r": "écrit"
+   },
+   {
+    "q": "Écris le participe passé de « ouvrir ».",
+    "r": "ouvert"
+   }
+  ],
+  "vocabulaire": [
+   "participe passé",
+   "troisième groupe"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Octobre",
+  "trimestre": "I",
+  "ordre": [
+   1,
+   80,
+   2
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm2-conj-03",
+  "cours": "CM2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le subjonctif présent de aller, faire, pouvoir, vouloir",
+  "regle": "Aller : que j'aille, que nous allions. Faire : que je fasse. Pouvoir : que je puisse. Vouloir : que je veuille, que nous voulions. Ces verbes changent de radical au subjonctif.",
+  "methode": "Je repère il faut que, je souhaite que, bien que, avant que : j'emploie le subjonctif.",
+  "exemple": "Il faut que j'aille au marché. Je souhaite qu'il puisse venir.",
+  "exercices": [
+   {
+    "q": "Complète : Il faut que j'(aller) … au marché.",
+    "r": "aille"
+   },
+   {
+    "q": "Complète : Il faut que tu (faire) … tes devoirs.",
+    "r": "fasses"
+   },
+   {
+    "q": "Complète : Je souhaite qu'il (pouvoir) … venir.",
+    "r": "puisse"
+   }
+  ],
+  "vocabulaire": [
+   "subjonctif",
+   "radical irrégulier"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Novembre",
+  "trimestre": "I",
+  "ordre": [
+   2,
+   80,
+   3
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm2-conj-04",
+  "cours": "CM2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "La voix passive",
+  "regle": "À la voix passive, le sujet subit l'action. Elle se forme avec le verbe être conjugué + le participe passé, qui s'accorde avec le sujet. L'auteur de l'action s'introduit par « par ».",
+  "methode": "Je transforme : le COD devient sujet, le sujet devient complément d'agent introduit par par.",
+  "exemple": "Le maître félicite les élèves. → Les élèves sont félicités par le maître.",
+  "exercices": [
+   {
+    "q": "Mets au passif : Awa lave la cour.",
+    "r": "La cour est lavée par Awa."
+   },
+   {
+    "q": "Mets au passif : Les paysans récoltent le maïs.",
+    "r": "Le maïs est récolté par les paysans."
+   },
+   {
+    "q": "Quel auxiliaire sert à former le passif ?",
+    "r": "être"
+   }
+  ],
+  "vocabulaire": [
+   "voix passive",
+   "complément d'agent"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Décembre",
+  "trimestre": "I",
+  "ordre": [
+   3,
+   80,
+   4
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm2-conj-05",
+  "cours": "CM2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Les verbes en -indre : craindre, peindre, joindre",
+  "regle": "Je crains, tu crains, il craint, nous craignons, vous craignez, ils craignent. Au pluriel, le radical devient craign-. Participes passés : craint, peint, joint.",
+  "methode": "Au singulier, je n'écris pas le d : je crains. Au pluriel, j'écris -gn- : nous craignons.",
+  "exemple": "Je crains l'orage. Nous peignons la porte. Ils joignent leurs efforts.",
+  "exercices": [
+   {
+    "q": "Complète : Je (craindre) … l'orage.",
+    "r": "crains"
+   },
+   {
+    "q": "Complète : Nous (peindre) … la porte.",
+    "r": "peignons"
+   },
+   {
+    "q": "Complète : Ils (joindre) … leurs efforts.",
+    "r": "joignent"
+   }
+  ],
+  "vocabulaire": [
+   "verbes en -indre",
+   "radical"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Janvier",
+  "trimestre": "II",
+  "ordre": [
+   4,
+   80,
+   5
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm2-conj-06",
+  "cours": "CM2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Les verbes en -uire : conduire, construire, produire",
+  "regle": "Je conduis, tu conduis, il conduit, nous conduisons, vous conduisez, ils conduisent. Participe passé : conduit, construit, produit.",
+  "methode": "Au singulier, la terminaison est -s, -s, -t. Au pluriel, le s du radical se prononce [z] : nous conduisons.",
+  "exemple": "Le chauffeur conduit prudemment. Nous construisons une case.",
+  "exercices": [
+   {
+    "q": "Complète : Le chauffeur (conduire) … prudemment.",
+    "r": "conduit"
+   },
+   {
+    "q": "Complète : Nous (construire) … une case.",
+    "r": "construisons"
+   },
+   {
+    "q": "Complète : Ces champs (produire) … beaucoup de maïs.",
+    "r": "produisent"
+   }
+  ],
+  "vocabulaire": [
+   "verbes en -uire",
+   "participe passé"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Février",
+  "trimestre": "II",
+  "ordre": [
+   5,
+   80,
+   6
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm2-conj-07",
+  "cours": "CM2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Le passé simple des verbes du 3e groupe à la 3e personne",
+  "regle": "Être : il fut, ils furent. Avoir : il eut, ils eurent. Faire : il fit, ils firent. Dire : il dit, ils dirent. Venir : il vint, ils vinrent. Prendre : il prit, ils prirent. Voir : il vit, ils virent. Pouvoir : il put, ils purent. Vouloir : il voulut, ils voulurent. Le passé simple raconte des actions terminées dans un récit.",
+  "methode": "Je repère un récit au passé : j'utilise il … ou ils … au passé simple pour les actions principales.",
+  "exemple": "Le roi vint au village. Les chasseurs prirent la route.",
+  "exercices": [
+   {
+    "q": "Complète au passé simple : Le roi (venir) … au village.",
+    "r": "vint"
+   },
+   {
+    "q": "Complète au passé simple : Ils (prendre) … la route.",
+    "r": "prirent"
+   },
+   {
+    "q": "Complète au passé simple : Elle (être) … très courageuse.",
+    "r": "fut"
+   }
+  ],
+  "vocabulaire": [
+   "passé simple",
+   "récit"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Mars",
+  "trimestre": "II",
+  "ordre": [
+   6,
+   80,
+   7
+  ],
+  "ancres": []
+ },
+ {
+  "id": "rx-cm2-conj-08",
+  "cours": "CM2",
+  "matiere": "francais",
+  "domaine": "Conjugaison",
+  "sous_domaine": "Conjugaison",
+  "outil": "Conjugaison",
+  "collection": "Conjugaison sans faute",
+  "titre": "Verbe ou autre mot ? a/à, est/et, ont/on, sont/son",
+  "regle": "A, est, ont, sont sont des formes de verbes (avoir ou être). À, et, on, son sont d'autres mots. Pour vérifier, je remplace : a → avait, est → était, ont → avaient, sont → étaient.",
+  "methode": "Je remplace par l'imparfait : si la phrase reste correcte, c'est le verbe.",
+  "exemple": "Koffi a un frère (avait). Awa est contente (était). Ils sont venus avec son ami.",
+  "exercices": [
+   {
+    "q": "Choisis a ou à : Koffi … un frère.",
+    "r": "a"
+   },
+   {
+    "q": "Choisis ont ou on : Les enfants … joué.",
+    "r": "ont"
+   },
+   {
+    "q": "Choisis est ou et : Awa … contente.",
+    "r": "est"
+   }
+  ],
+  "vocabulaire": [
+   "homophones",
+   "auxiliaire"
+  ],
+  "mention": "Résumé original — à valider par le conseiller pédagogique",
+  "mois": "Avril",
+  "trimestre": "III",
+  "ordre": [
+   7,
+   80,
+   8
+  ],
+  "ancres": []
+ }
+]

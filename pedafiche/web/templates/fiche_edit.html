@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% block corps %}<h1>{{ 'Modifier ma fiche' if mid else 'Préparer une fiche' }}</h1>{% include "_classe_nav.html" %}
+<form method="post" action="{{ action }}"><input type="hidden" name="_csrf" value="{{ csrf }}"><input type="hidden" name="base" value="{{ f['id'] if f.get('id') and not mid else '' }}">
+<div class="carte"><h2>Identification</h2><div class="grille">
+<label>Titre de la leçon<br><input name="titre" value="{{ f.get('titre','') }}" required style="width:100%"></label>
+<label>Matière<br><select name="matiere">{% for m in mats %}<option value="{{ m }}" {{ 'selected' if f.get('matiere')==m }}>{{ corpus.LIB_MAT[m] }}</option>{% endfor %}</select></label>
+<label>Sous-matière<br><input name="sous_matiere" value="{{ f.get('sous_matiere') or '' }}"></label>
+<label>Unité / SA<br><input name="unite" value="{{ f.get('unite') or '' }}"></label>
+<label>Intitulé de l'unité<br><input name="intitule" value="{{ f.get('intitule') or '' }}"></label>
+<label>N° de SA<br><input name="sa" value="{{ f.get('sa') or '' }}" size="4"></label>
+<label>N° de séance<br><input name="seance" value="{{ f.get('seance') or '' }}" size="4"></label>
+<label>Durée<br><input name="duree" value="{{ f.get('duree') or '' }}" placeholder="45min"></label></div></div>
+<div class="carte"><h2>Planification</h2>{% for cle, lib in champs %}<p><label>{{ lib }}<br><textarea name="{{ cle }}" rows="2">{{ f.get(cle) or '' }}</textarea></label></p>{% endfor %}</div>
+<div class="carte"><h2>Déroulement de la séance</h2>{% for ph in phases %}{% set ligne = (f.get('deroulement') or [])[loop.index0] if (f.get('deroulement') or [])|length > loop.index0 else ['','',''] %}
+<h3>{{ ph }}</h3><p><label>Consignes (enseignant et apprenants)<br><textarea name="cons{{ loop.index0 }}" rows="5">{{ (ligne[1] or '')|replace('**','') }}</textarea></label></p>
+<p><label>Résultats attendus<br><textarea name="res{{ loop.index0 }}" rows="2">{{ (ligne[2] if ligne|length>2 else '') }}</textarea></label></p>{% endfor %}
+{% if f.get('deroulement') and f['deroulement']|length > 3 %}<p class="petit">Cette fiche compte {{ f['deroulement']|length }} phases : les trois premières sont reprises ici, regroupez les autres dans « Retour et projection ».</p>{% endif %}</div>
+<div class="carte"><h2>Évaluation et projection</h2>{% for cle, lib in fin %}<p><label>{{ lib }}<br><textarea name="{{ cle }}" rows="3">{{ f.get(cle) or '' }}</textarea></label></p>{% endfor %}</div>
+<div class="barre"><button class="btn">Enregistrer</button>
+{% if mid %}<a class="btn sec" href="{{ url_for('fiche_perso_export', cid=c['id'], mid=mid, fmt='pdf') }}" target="_blank">PDF</a><a class="btn sec" href="{{ url_for('fiche_perso_export', cid=c['id'], mid=mid, fmt='docx') }}">Word</a>{% endif %}
+<a class="btn sec" href="{{ url_for('mes_fiches', cid=c['id']) }}">Retour à mes fiches</a></div></form>{% endblock %}

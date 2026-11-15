@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block corps %}<h1>Journal d'audit</h1><div class="barre"><a class="btn sec" href="{{ url_for('admin') }}">Administration</a>{% if user['role']=='admin' %}<a class="btn" href="{{ url_for('sauvegarde') }}">Télécharger une sauvegarde de la base</a>{% endif %}</div>
+<table><tr><th>Date</th><th>Identifiant</th><th>Action</th><th>Détail</th></tr>{% for l in lignes %}<tr><td>{{ l['quand'] }}</td><td>{{ l['identifiant'] }}</td><td>{{ l['action'] }}</td><td>{{ l['detail'] }}</td></tr>{% endfor %}</table>{% endblock %}

@@ -1,0 +1,12 @@
+[project]
+name = "pedafiche-benin"
+version = "2.2.0"
+description = "Préparation de classe, progression, cahier journal, élèves, appel, carnet de notes, bulletins et évaluations (APC) pour les enseignants du Bénin"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["Flask>=3.0", "reportlab>=4.0", "pypdf>=4.0", "waitress>=3.0", "python-docx>=1.1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests", "."]

@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block corps %}<h1>Cahier journal — {{ c['nom'] }}</h1>{% include "_classe_nav.html" %}
+<div class="carte"><div class="barre"><a class="btn sec" href="?du={{ prec.isoformat() }}">◀ Semaine précédente</a><strong>Du {{ du.strftime('%d/%m/%Y') }} au {{ au.strftime('%d/%m/%Y') }}</strong>
+<a class="btn sec" href="?du={{ suiv.isoformat() }}">Semaine suivante ▶</a><a class="btn" href="{{ url_for('journal_pdf', cid=c['id'], du=du.isoformat(), au=au.isoformat()) }}" target="_blank">Imprimer (PDF)</a></div>
+<p class="petit">Quand vous marquez une fiche comme réalisée, elle s'inscrit ici toute seule.</p></div>
+<form class="carte" method="post"><h2>Ajouter une leçon faite</h2><input type="hidden" name="_csrf" value="{{ csrf }}"><input type="hidden" name="action" value="ajouter">
+<div class="grille"><label>Date<br><input type="date" name="jour" value="{{ aujourdhui.isoformat() }}" required></label><label>Horaire<br><input name="creneau" placeholder="7h30-8h15"></label>
+<label>Matière<br><select name="matiere"><option value="">—</option>{% for k, v in mats.items() %}<option value="{{ k }}">{{ v }}</option>{% endfor %}</select></label>
+<label>Réalisation<br><select name="realise"><option value="oui">Réalisée</option><option value="partiel">Partielle</option><option value="non">Non réalisée</option></select></label></div>
+<p><label>Leçon ou activité<br><input name="titre" required style="width:100%"></label></p><p><label>Observation<br><input name="observation" style="width:100%"></label></p><button class="btn">Ajouter</button></form>
+{% if not par_jour %}<div class="carte petit">Aucune entrée sur cette période.</div>{% endif %}
+{% for jour, ls in par_jour.items() %}<div class="carte"><h2>{{ jour[8:10] }}/{{ jour[5:7] }}/{{ jour[:4] }}</h2><table><tr><th>Horaire</th><th>Matière</th><th>Leçon</th><th>Réalisation</th><th>Observation</th><th></th></tr>
+{% for l in ls %}<tr><td>{{ l['creneau'] }}</td><td>{{ mats.get(l['matiere'], l['matiere']) }}</td><td>{% if l['fiche_id'] %}<a href="{{ url_for('fiche', cid=c['id'], fid=l['fiche_id']) }}">{{ l['titre'] }}</a>{% else %}{{ l['titre'] }}{% endif %}</td>
+<td>{{ {'oui':'Réalisée','partiel':'Partielle','non':'Non réalisée'}[l['realise']] }}</td><td>{{ l['observation'] }}</td>
+<td><form method="post"><input type="hidden" name="_csrf" value="{{ csrf }}"><input type="hidden" name="action" value="supprimer"><input type="hidden" name="id" value="{{ l['id'] }}"><button class="btn rouge">×</button></form></td></tr>{% endfor %}</table></div>{% endfor %}{% endblock %}

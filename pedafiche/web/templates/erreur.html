@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block corps %}<div class="carte"><h1>{{ e.code }} — {{ {403:'Accès refusé',404:'Introuvable',400:'Requête invalide'}.get(e.code,'Erreur') }}</h1><p>{{ e.description if e.code!=403 else "Cette classe ne vous est pas affectée." }}</p><a class="btn" href="/">Retour</a></div>{% endblock %}

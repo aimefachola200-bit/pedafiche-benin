@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block corps %}<h1>Élèves — {{ c['nom'] }} ({{ liste|length }})</h1>{% include "_classe_nav.html" %}
+<div class="barre"><a class="btn" href="{{ url_for('eleves_pdf', cid=c['id']) }}" target="_blank">Liste de classe (PDF)</a><a class="btn sec" href="{{ url_for('modele_eleves') }}">Modèle d'import (CSV)</a></div>
+<div class="grille"><form class="carte" method="post"><h2>Ajouter un élève</h2><input type="hidden" name="_csrf" value="{{ csrf }}"><input type="hidden" name="action" value="ajouter">
+<p><input name="nom" placeholder="Nom" required><br><input name="prenom" placeholder="Prénoms"><br><select name="sexe"><option value="">Sexe</option><option value="M">Garçon</option><option value="F">Fille</option></select><br>
+<input name="naissance" placeholder="Naissance (jj/mm/aaaa)"><br><input name="matricule" placeholder="Matricule"><br><input name="tuteur" placeholder="Parent / tuteur"><br><input name="telephone" placeholder="Téléphone"></p><button class="btn">Ajouter</button></form>
+<form class="carte" method="post" enctype="multipart/form-data"><h2>Importer une liste</h2><input type="hidden" name="_csrf" value="{{ csrf }}"><input type="hidden" name="action" value="importer">
+<p class="petit">Colonnes : nom ; prénom ; sexe ; naissance ; matricule ; tuteur ; téléphone. Fichier CSV (Excel : « Enregistrer sous » CSV) ou texte collé.</p>
+<p><input type="file" name="fichier" accept=".csv,.txt"></p><p><textarea name="texte" rows="5" placeholder="ADJOVI;Koffi;M;12/03/2017"></textarea></p><button class="btn">Importer</button></form></div>
+<table><tr><th>N°</th><th>Nom et prénoms</th><th>Sexe</th><th>Naissance</th><th>Matricule</th><th>Parent / tuteur</th><th>Téléphone</th><th></th></tr>
+{% for e in liste %}<tr><td>{{ loop.index }}</td><td>{{ e['nom'] }} {{ e['prenom'] }}</td><td>{{ e['sexe'] }}</td><td>{{ e['naissance'] }}</td><td>{{ e['matricule'] }}</td><td>{{ e['tuteur'] }}</td><td>{{ e['telephone'] }}</td>
+<td><form method="post" onsubmit="return confirm('Retirer cet élève de la classe ?')"><input type="hidden" name="_csrf" value="{{ csrf }}"><input type="hidden" name="action" value="retirer"><input type="hidden" name="id" value="{{ e['id'] }}"><button class="btn rouge">Retirer</button></form></td></tr>{% endfor %}</table>{% endblock %}

@@ -1,0 +1,24 @@
+:root{--v:#16315f;--v2:#0e2244;--j:#fcd116;--r:#e8112d;--fond:#f4f6f3;--txt:#1e2a1e;--bord:#d5ddd5}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 "Liberation Serif","Times New Roman",serif;background:var(--fond);color:var(--txt)}
+a{color:var(--v)}header{background:var(--v);color:#fff;display:flex;align-items:center;gap:.8rem;padding:.5rem 1rem;flex-wrap:wrap}
+header img{width:36px;height:36px;border-radius:8px}header strong{font-size:1.2rem}header nav{display:flex;gap:.4rem;flex-wrap:wrap;margin-left:auto}
+header a,header button{color:#fff;text-decoration:none;padding:.3rem .7rem;border-radius:6px;background:rgba(255,255,255,.12);border:0;font:inherit;cursor:pointer}
+header a:hover,header button:hover{background:rgba(255,255,255,.25)}
+.tricolore{height:5px;background:linear-gradient(90deg,#008751 33%,var(--j) 33% 66%,var(--r) 66%)}
+main{max-width:1100px;margin:1rem auto;padding:0 1rem}footer{text-align:center;color:#6b7280;font-size:.8rem;padding:1.5rem 0}
+.carte{background:#fff;border:1px solid var(--bord);border-radius:10px;padding:1rem;margin-bottom:1rem}
+.grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+h1{font-size:1.5rem;color:var(--v2);margin:.2rem 0 .8rem}h2{font-size:1.15rem;color:var(--v2)}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.92rem}th,td{border:1px solid var(--bord);padding:.35rem .5rem;vertical-align:top;text-align:left}
+th{background:var(--v);color:#fff}td.c0{background:#eef2f7;font-weight:bold}
+.btn{display:inline-block;background:var(--v);color:#fff;border:0;border-radius:6px;padding:.4rem .9rem;text-decoration:none;font:inherit;cursor:pointer}
+.btn.sec{background:#fff;color:var(--v);border:1px solid var(--v)}.btn.rouge{background:var(--r)}
+input,select,textarea{font:inherit;padding:.35rem;border:1px solid #b9c4b9;border-radius:6px;max-width:100%}textarea{width:100%}
+.flash{padding:.6rem 1rem;border-radius:8px;margin:.5rem 0}.flash.ok{background:#d1fae5}.flash.erreur{background:#fee2e2}
+.pastille{display:inline-block;padding:.05rem .5rem;border-radius:99px;color:#fff;font-size:.8rem}
+.barre{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.5rem 0}.petit{color:#6b7280;font-size:.85rem}
+.mois{display:inline-block;vertical-align:top;margin:.3rem;width:215px}.mois table{font-size:.75rem}.mois td{text-align:center;padding:2px;height:24px}
+.fait{text-decoration:line-through;color:#6b7280}.nouveau{background:#fff7d6}
+@media print{header,footer,.barre,.btn{display:none}}
+.jauge{height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin-top:.3rem}.jauge span{display:block;height:100%;background:#008751}
+h3{font-size:1rem;color:var(--v2);margin:.6rem 0 .2rem}label{display:block}

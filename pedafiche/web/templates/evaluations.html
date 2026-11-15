@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block corps %}<h1>Évaluations — {{ c['nom'] }}</h1>{% include "_classe_nav.html" %}
+{% if not jeu %}<div class="carte">La banque d'épreuves couvre le CI au CM2.</div>{% else %}
+<form class="barre" method="get"><select name="per" onchange="this.form.submit()">{% for p in periodes %}<option value="{{ p[0] }}" {{ 'selected' if p[0]==per }}>{{ p[1] }}</option>{% endfor %}</select></form>
+<div class="petit">Épreuves générées d'après la planification annuelle jusqu'à la période choisie. Mention : épreuves conçues selon l'APC — à valider par le conseiller pédagogique.</div>
+<table><tr><th>Épreuve</th><th>Durée</th><th>Barème</th><th>Documents</th></tr>{% for d in jeu %}<tr><td>{{ d['discipline'] }}<div class="petit">{{ d['source'] }}</div></td><td>{{ d['duree'] }}</td><td>/{{ d['bareme'] }}</td>
+<td><a class="btn sec" target="_blank" href="{{ url_for('evaluation_pdf', cid=c['id'], per=per, code=d['code'], mode='sujet') }}">Sujet</a>
+<a class="btn sec" target="_blank" href="{{ url_for('evaluation_pdf', cid=c['id'], per=per, code=d['code'], mode='corrige') }}">Corrigé</a>
+<a class="btn sec" target="_blank" href="{{ url_for('evaluation_pdf', cid=c['id'], per=per, code=d['code'], mode='grille') }}">Grille</a></td></tr>{% endfor %}</table>{% endif %}{% endblock %}

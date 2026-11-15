@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block corps %}<h1>Mon compte</h1><div class="carte" style="max-width:420px"><p>{{ user['prenom'] }} {{ user['nom'] }} — {{ user['role'] }} — identifiant « {{ user['identifiant'] }} »</p>
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf }}"><h2>Changer mon mot de passe</h2>
+<p><input type="password" name="ancien" placeholder="Mot de passe actuel" required></p><p><input type="password" name="nouveau" placeholder="Nouveau (8+, lettres et chiffres)" required></p><p><input type="password" name="confirmation" placeholder="Confirmer" required></p><button class="btn">Changer</button></form></div>{% endblock %}

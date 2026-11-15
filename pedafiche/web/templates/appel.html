@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block corps %}<h1>Appel — {{ c['nom'] }}</h1>{% include "_classe_nav.html" %}
+<div class="carte"><div class="barre"><a class="btn sec" href="?jour={{ prec.isoformat() }}">◀ Veille</a><strong>{{ ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'][jour.weekday()] }} {{ jour.strftime('%d/%m/%Y') }}</strong>
+{% if jour < aujourdhui %}<a class="btn sec" href="?jour={{ suiv.isoformat() }}">Lendemain ▶</a>{% endif %}<form method="get" class="barre"><input type="date" name="jour" value="{{ jour.isoformat() }}" max="{{ aujourdhui.isoformat() }}"><button class="btn sec">Aller</button></form></div>
+{% if not est_classe %}<div class="flash erreur">Ce jour n'est pas un jour de classe selon le calendrier{% for e in evts %} ({{ e['libelle'] }}){% endfor %}.</div>{% endif %}</div>
+{% if not liste %}<div class="carte">Aucun élève : <a href="{{ url_for('eleves', cid=c['id']) }}">ajoutez ou importez la liste de la classe</a>.</div>{% else %}
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf }}"><input type="hidden" name="jour" value="{{ jour.isoformat() }}">
+<table><tr><th>N°</th><th>Élève</th>{% for k, l in statuts %}<th>{{ l }}</th>{% endfor %}<th>Justifié</th><th>Motif</th></tr>
+{% for e in liste %}{% set d = deja.get(e['id']) %}<tr><td>{{ loop.index }}</td><td>{{ e['nom'] }} {{ e['prenom'] }}</td>
+{% for k, l in statuts %}<td><input type="radio" name="s{{ e['id'] }}" value="{{ k }}" {{ 'checked' if (d and d['statut']==k) or (not d and k=='P') }}></td>{% endfor %}
+<td><input type="checkbox" name="j{{ e['id'] }}" value="1" {{ 'checked' if d and d['justifie'] }}></td><td><input name="m{{ e['id'] }}" value="{{ d['motif'] if d else '' }}" maxlength="120"></td></tr>{% endfor %}</table>
+<p><button class="btn">Enregistrer l'appel</button></p></form>{% endif %}{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block corps %}<h1>Résumés — {{ c['nom'] }}</h1>{% include "_classe_nav.html" %}
+<form class="barre" method="get"><select name="matiere" onchange="this.form.submit()">{% for m in mats %}<option value="{{ m }}" {{ 'selected' if m==mat }}>{{ corpus.LIB_MAT[m] }}</option>{% endfor %}</select>
+<select name="mois" onchange="this.form.submit()"><option value="">Tous les mois</option>{% for m in mois_liste %}<option {{ 'selected' if m==mois }}>{{ m }}</option>{% endfor %}</select>
+<input name="q" value="{{ q }}" placeholder="Rechercher…"><button class="btn">Filtrer</button></form>
+<div class="petit">{{ total }} résumé(s){% if total>300 %} — 300 premiers affichés{% endif %}</div>
+<table><tr><th>Domaine</th><th>Titre</th><th>Mois</th><th></th></tr>{% for r in liste %}<tr><td>{{ r['collection'] }} · {{ r['domaine'] }}</td>
+<td><a href="{{ url_for('resume', cid=c['id'], rid=r['id']) }}">{{ r['titre'] }}</a></td><td>{{ r.get('mois') or '' }}</td>
+<td><a class="btn sec" target="_blank" href="{{ url_for('resume_pdf', cid=c['id'], rid=r['id']) }}">PDF</a></td></tr>{% endfor %}</table>{% endblock %}

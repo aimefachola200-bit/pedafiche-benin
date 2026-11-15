@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block corps %}<h1>Mes classes</h1>
+{% if not classes %}<div class="carte">Aucune classe ne vous est affectée. Demandez au directeur de vous en attribuer une.</div>{% endif %}
+<div class="grille">{% for c in classes %}<a class="carte" style="text-decoration:none" href="{{ url_for('classe', cid=c['id']) }}">
+<h2 style="margin:0">{{ c['nom'] }}</h2><div>{{ LIB_COURS[c['cours']] }} · {{ c['effectif'] }} élèves</div><div class="petit">{{ c['ecole'] }}</div>{% set t = taux[c['id']] %}{% if t %}<div class="petit">{{ t['mois'] }} : {{ t['faites'] }} / {{ t['prevues'] }} fiches réalisées ({{ t['taux'] }} %)</div><div class="jauge"><span style="width:{{ t['taux'] }}%"></span></div>{% endif %}</a>{% endfor %}</div>{% endblock %}

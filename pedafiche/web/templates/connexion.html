@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block corps %}<div class="carte" style="max-width:380px;margin:2rem auto"><h1>Connexion</h1>
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf }}">
+<p><label>Identifiant<br><input name="identifiant" required autofocus style="width:100%"></label></p>
+<p><label>Mot de passe<br><input type="password" name="mdp" required style="width:100%"></label></p><button class="btn">Se connecter</button></form></div>{% endblock %}

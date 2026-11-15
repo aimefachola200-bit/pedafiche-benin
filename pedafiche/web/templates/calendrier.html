@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block corps %}<h1>Calendrier scolaire {{ annee }}</h1>
+<div class="carte"><div class="petit">{{ ref['reference'] }} — {{ ref['source'] }}</div>
+<p><strong>{{ resume['jours_de_classe'] }}</strong> jours de classe · <strong>{{ resume['semaines'] }}</strong> semaines · rentrée des classes le {{ resume['rentree'].strftime('%d/%m/%Y') }} · fin des cours le {{ resume['fin_cours'].strftime('%d/%m/%Y') }}
+<a class="btn" href="{{ url_for('calendrier_pdf') }}" target="_blank">PDF</a></p></div>
+<table><tr><th>Période</th><th>Type</th><th>Du</th><th>Au</th><th>Précision</th><th>Durée</th></tr>{% for p in periodes %}
+<tr><td><span class="pastille" style="background:#555">&nbsp;</span> {{ p['libelle'] }}</td><td style="background:{{ COUL[p['type']] }}">{{ TL[p['type']] }}</td><td>{{ p['debut_d'].strftime('%d/%m/%Y') }}</td><td>{{ p['fin_d'].strftime('%d/%m/%Y') }}</td><td>{{ p['precision'] }}</td><td>{{ p['duree'] }}</td></tr>{% endfor %}</table>
+<h2>Vue mensuelle</h2><div>{% for an, m, sem in grilles %}<div class="mois carte"><strong>{{ MOIS[m-1]|capitalize }} {{ an }}</strong><table><tr>{% for x in ['L','M','M','J','V','S','D'] %}<th>{{ x }}</th>{% endfor %}</tr>
+{% for s in sem %}<tr>{% for d in s %}{% if d %}<td style="background:{{ COUL.get(d['type'], '#fff') if d['type'] not in ('classe','weekend','hors') else ('#fff' if d['type']=='classe' else '#f3f4f6') }};{{ 'outline:2px solid #1a5c38;' if d['date']==aujourdhui }}">{{ d['jour'] }}</td>{% else %}<td></td>{% endif %}{% endfor %}</tr>{% endfor %}</table></div>{% endfor %}</div>
+<p class="petit">Blanc : jour de classe · Rouge : congés / férié · Mauve : vacances · Gris : week-end.</p>{% endblock %}

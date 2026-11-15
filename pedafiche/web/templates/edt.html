@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block corps %}<h1>Emploi du temps — {{ c['nom'] }}</h1>{% include "_classe_nav.html" %}
+<div class="barre"><a class="btn" href="{{ url_for('edt_pdf', cid=c['id']) }}" target="_blank">PDF</a><span class="petit">{{ 'Emploi du temps personnalisé.' if perso else 'Modèle officiel (MEMP) : modifiez les cases puis enregistrez.' }} Une activité par ligne, ex. « Français 45 min ».</span></div>
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf }}"><input type="hidden" name="n" value="{{ lignes|length }}">
+<div style="overflow-x:auto"><table><tr><th>Horaire</th>{% for j, lib in jours %}<th>{{ lib }}</th>{% endfor %}</tr>
+{% for l in lignes %}{% set i = loop.index0 %}<tr><td><input name="h{{ i }}" value="{{ l['horaire'] }}" size="12"></td>{% for j, lib in jours %}<td><textarea name="c{{ i }}_{{ j }}" rows="3">{{ l.get(j, '') }}</textarea></td>{% endfor %}</tr>{% endfor %}</table></div>
+<p><button class="btn" name="action" value="enregistrer">Enregistrer</button> <button class="btn sec" name="action" value="reinitialiser" onclick="return confirm('Rétablir le modèle officiel ?')">Rétablir le modèle officiel</button></p></form>{% endblock %}

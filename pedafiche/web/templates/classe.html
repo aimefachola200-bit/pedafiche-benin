@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block corps %}<h1>{{ c['nom'] }} — {{ LIB_COURS[c['cours']] }}</h1>{% include "_classe_nav.html" %}
+<div class="carte"><div class="barre"><a class="btn sec" href="?jour={{ prec.isoformat() }}">◀ Semaine précédente</a>
+<strong>Semaine du {{ semaine[0][0].strftime('%d/%m/%Y') }}</strong><a class="btn sec" href="?jour={{ suiv.isoformat() }}">Semaine suivante ▶</a>
+<a class="btn" href="{{ url_for('classeur_semaine', cid=c['id'], jour=jour.isoformat()) }}">Classeur PDF de la semaine</a></div>
+<div class="petit">{{ trimestre or 'Hors trimestre' }}{% for e in evts %} · {{ e['libelle'] }}{% endfor %} · Titulaire : {{ titulaire }}</div></div>
+{% for j, creneaux in semaine %}<div class="carte"><h2>{{ ['Lundi','Mardi','Mercredi','Jeudi','Vendredi'][j.weekday()] }} {{ j.strftime('%d/%m') }}</h2>
+<table><tr><th style="width:18%">Horaire</th><th>Activité</th><th>Fiche proposée</th></tr>
+{% for k in creneaux %}<tr><td>{{ k['horaire'] }}</td><td>{{ k['libelle'] }}</td><td>{% if k['fiche_id'] %}<a href="{{ url_for('fiche', cid=c['id'], fid=k['fiche_id']) }}" class="{{ 'fait' if k['fiche_id'] in faites }}">{{ k['fiche_titre'] }}</a>{% endif %}</td></tr>{% endfor %}</table></div>{% endfor %}{% endblock %}

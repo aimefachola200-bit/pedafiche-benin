@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block corps %}<h1>Mes fiches — {{ LIB_COURS[c['cours']] }}</h1>{% include "_classe_nav.html" %}
+<div class="barre"><a class="btn" href="{{ url_for('fiche_nouvelle', cid=c['id']) }}">Nouvelle fiche vierge</a><span class="petit">Pour partir d'une fiche existante : ouvrez-la dans « Fiches » puis « Adapter pour ma classe ».</span></div>
+<div class="carte"><h2>Mes fiches ({{ miennes|length }})</h2>
+{% if not miennes %}<p class="petit">Aucune fiche personnelle pour le moment.</p>{% else %}<table><tr><th>Titre</th><th>Matière</th><th>Modifiée</th><th></th></tr>
+{% for m in miennes %}<tr><td><a href="{{ url_for('fiche_perso', cid=c['id'], mid=m['id']) }}">{{ m['titre'] }}</a>{% if m['partage'] %} <span class="pastille" style="background:#008751">partagée</span>{% endif %}</td>
+<td>{{ corpus.LIB_MAT[m['matiere']] }}</td><td>{{ m['maj'][:10] }}</td><td class="barre">
+<a class="btn sec" href="{{ url_for('fiche_perso_export', cid=c['id'], mid=m['id'], fmt='pdf') }}" target="_blank">PDF</a>
+<a class="btn sec" href="{{ url_for('fiche_perso_export', cid=c['id'], mid=m['id'], fmt='docx') }}">Word</a>
+{% for act, lib in (('partager', 'Retirer le partage' if m['partage'] else 'Partager'), ('dupliquer','Dupliquer'), ('supprimer','Supprimer')) %}<form method="post" action="{{ url_for('fiche_perso_action', cid=c['id'], mid=m['id'], action=act) }}"{% if act=='supprimer' %} onsubmit="return confirm('Supprimer cette fiche ?')"{% endif %}><input type="hidden" name="_csrf" value="{{ csrf }}"><button class="btn {{ 'rouge' if act=='supprimer' else 'sec' }}">{{ lib }}</button></form>{% endfor %}</td></tr>{% endfor %}</table>{% endif %}</div>
+<div class="carte"><h2>Fiches partagées par des collègues ({{ partagees|length }})</h2>
+{% if not partagees %}<p class="petit">Aucune fiche partagée pour ce cours.</p>{% else %}<table><tr><th>Titre</th><th>Auteur</th><th></th></tr>
+{% for m in partagees %}<tr><td>{{ m['titre'] }}</td><td>{{ m['auteur'] }}</td><td class="barre"><a class="btn sec" href="{{ url_for('fiche_perso_export', cid=c['id'], mid=m['id'], fmt='pdf') }}" target="_blank">Voir (PDF)</a>
+<form method="post" action="{{ url_for('fiche_perso_action', cid=c['id'], mid=m['id'], action='copier') }}"><input type="hidden" name="_csrf" value="{{ csrf }}"><button class="btn">Copier dans mes fiches</button></form></td></tr>{% endfor %}</table>{% endif %}</div>{% endblock %}

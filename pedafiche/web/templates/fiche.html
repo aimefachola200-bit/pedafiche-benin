@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block corps %}<h1>{{ f['titre'] }}</h1>{% include "_classe_nav.html" %}
+<div class="barre"><a class="btn" href="{{ url_for('fiche_pdf', cid=c['id'], fid=f['id']) }}" target="_blank">Télécharger / imprimer (PDF recto-verso)</a>
+<a class="btn sec" href="{{ url_for('fiche_docx', cid=c['id'], fid=f['id']) }}">Télécharger en Word</a>
+<a class="btn sec" href="{{ url_for('fiche_nouvelle', cid=c['id'], base=f['id']) }}">Adapter pour ma classe</a>
+<form method="post" action="{{ url_for('suivi', cid=c['id'], fid=f['id']) }}" class="barre"><input type="hidden" name="_csrf" value="{{ csrf }}">
+{% if suivi %}<span>Réalisée le {{ suivi['date_realisee'] }}</span><button class="btn sec">Retirer</button>{% else %}<input type="hidden" name="fait" value="1"><input name="observation" placeholder="Observation (facultatif)"><button class="btn">Marquer comme réalisée</button>{% endif %}</form></div>
+<div class="carte"><table><tr><td class="c0">Matière</td><td>{{ corpus.LIB_MAT[f['matiere']] }} · {{ f['sous_matiere'] }} · {{ f['unite'] }} — {{ f['intitule'] }} · {{ f['duree'] }}</td></tr>
+{% for lib, cle in [('Compétence disciplinaire','cd'),('Compétences transversales','ct'),('Contenus','contenus'),('Stratégies','strategies'),('Matériel','materiel'),('Objectifs','objectifs'),('Activité préliminaire','activite_preliminaire')] %}{% if f[cle] %}<tr><td class="c0">{{ lib }}</td><td style="white-space:pre-line">{{ f[cle] }}</td></tr>{% endif %}{% endfor %}</table></div>
+<div class="carte"><h2>Déroulement</h2><table><tr><th>Phase</th><th>Consignes</th><th>Résultats attendus</th></tr>{% for r in f['deroulement'] %}<tr><td class="c0" style="white-space:pre-line">{{ r[0]|replace('**','') }}</td><td style="white-space:pre-line">{{ r[1]|replace('**','') }}</td><td style="white-space:pre-line">{{ r[2] if r|length>2 }}</td></tr>{% endfor %}</table></div>
+<div class="carte"><table>{% for lib, cle in [('Évaluation','evaluation'),('Projection','projection'),('Je retiens','je_retiens')] %}{% if f[cle] %}<tr><td class="c0">{{ lib }}</td><td style="white-space:pre-line">{{ f[cle] }}</td></tr>{% endif %}{% endfor %}</table>
+<p class="petit">{{ f['mention'] }}</p></div>
+{% if resumes %}<div class="carte"><h2>Résumés liés à cette séance</h2>{% for r in resumes %}<div><a href="{{ url_for('resume', cid=c['id'], rid=r['id']) }}">{{ r['titre'] }}</a></div>{% endfor %}</div>{% endif %}{% endblock %}
