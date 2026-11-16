@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block corps %}<div class="carte" style="max-width:420px;margin:2rem auto"><h1>Bienvenue dans pédafiche</h1>
+<p class="aide">Première utilisation : créez votre compte (directeur ou enseignant principal). Il reste sur cet appareil et fonctionne sans Internet.</p>
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf }}">
+<p><label>Nom<br><input name="nom" required autofocus style="width:100%"></label></p>
+<p><label>Prénoms<br><input name="prenom" style="width:100%"></label></p>
+<p><label>Identifiant (sans espace)<br><input name="identifiant" required autocomplete="username" style="width:100%"></label></p>
+<p><label>Mot de passe (8 caractères au moins)<br><input type="password" name="mdp" required minlength="8" autocomplete="new-password" style="width:100%"></label></p>
+<p><label>Répéter le mot de passe<br><input type="password" name="mdp2" required minlength="8" autocomplete="new-password" style="width:100%"></label></p>
+<button class="btn">Créer mon compte</button></form></div>{% endblock %}

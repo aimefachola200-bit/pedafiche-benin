@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0
+- Installation SANS Internet : installateur Windows (PedaFiche-Installation.exe) et application Android autonome (PedaFiche.apk, téléphone et tablette), fabriqués par GitHub Actions (onglet Actions, étiquette `v2.3.0`) et publiés sur la page Releases.
+- Premier lancement : création du compte directeur/enseignant sur l'appareil, données et sauvegardes locales.
+
 ## 2.2.0
 Application réorganisée autour du travail quotidien de l'enseignant : préparer, enseigner, suivre, évaluer.
 - **Préparer ma fiche** : éditeur de fiche (vierge ou « Adapter pour ma classe » à partir d'une fiche du corpus), « Mes fiches » (modifier, dupliquer, supprimer), partage avec les collègues du même cours et copie d'une fiche partagée. Export **PDF** (filigrane du titulaire) et **Word**, y compris pour les fiches du corpus.

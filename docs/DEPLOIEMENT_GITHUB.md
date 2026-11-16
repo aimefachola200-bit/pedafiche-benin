@@ -16,7 +16,7 @@ git config --global user.email "votre-adresse@exemple.com"
 cd %USERPROFILE%\Documents\pedafiche-benin
 git init -b main
 git add -A
-git commit -m "PedaFiche Benin v2.2.0"
+git commit -m "PedaFiche Benin v2.3.0"
 git remote add origin https://github.com/aimefachola200-bit/pedafiche-benin.git
 git push -u origin main
 ```
@@ -24,8 +24,8 @@ Une fenêtre du navigateur s'ouvre pour se connecter à GitHub : accepter.
 5. Onglet **Actions** du dépôt : les 30 tests se lancent à chaque envoi (pastille verte = tout passe).
 6. Étiquette de version :
 ```
-git tag -a v2.2.0 -m "2.2.0"
-git push origin v2.2.0
+git tag -a v2.3.0 -m "2.2.0"
+git push origin v2.3.0
 ```
 
 ### Mises à jour suivantes

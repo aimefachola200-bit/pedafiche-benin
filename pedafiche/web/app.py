@@ -123,6 +123,8 @@ def create_app() -> Flask:
     # ------------------------------------------------------------------ connexion
     @app.route("/connexion", methods=["GET", "POST"])
     def connexion():
+        if _autonome() and _aucun_compte():
+            return redirect(url_for("premiere_installation"))
         if request.method == "POST":
             ident = request.form.get("identifiant", "").strip().lower()
             reste = securite.minutes_restantes(ident)
@@ -144,6 +146,33 @@ def create_app() -> Flask:
             audit("connexion_refusee", ident=ident)
             flash("Identifiant ou mot de passe incorrect.", "erreur")
         return render_template("connexion.html")
+
+    # ------------------------------------------------------------------ première installation (applications autonomes)
+    def _autonome():
+        return os.environ.get("PEDAFICHE_AUTONOME") == "1"
+
+    def _aucun_compte():
+        return db.q("SELECT COUNT(*) n FROM users", un=True)["n"] == 0
+
+    @app.route("/premiere-installation", methods=["GET", "POST"])
+    def premiere_installation():
+        """Application installée sur un PC, un téléphone ou une tablette : le premier utilisateur crée son compte directeur.
+        Réservé aux applications autonomes (variable PEDAFICHE_AUTONOME) et refermé dès qu'un compte existe."""
+        if not _autonome() or not _aucun_compte():
+            return redirect(url_for("connexion"))
+        if request.method == "POST":
+            nom = request.form.get("nom", "").strip()
+            prenom = request.form.get("prenom", "").strip()
+            ident = request.form.get("identifiant", "").strip().lower()
+            mdp = request.form.get("mdp", "")
+            if not nom or not ident or len(mdp) < 8 or mdp != request.form.get("mdp2", ""):
+                flash("Renseignez le nom et l'identifiant ; le mot de passe doit avoir 8 caractères au moins et être répété à l'identique.", "erreur")
+            else:
+                db.ex("INSERT INTO users(identifiant, nom, prenom, role, mdp_hash) VALUES (?,?,?,?,?)",
+                      (ident, nom, prenom, "admin", generate_password_hash(mdp)))
+                flash("Compte créé. Connectez-vous.", "ok")
+                return redirect(url_for("connexion"))
+        return render_template("premiere_installation.html")
 
     @app.route("/deconnexion", methods=["POST"])
     def deconnexion():
