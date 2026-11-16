@@ -193,3 +193,13 @@ def test_mon_compte_et_sauvegarde():
     ad = _connexion("admin", "Secret2026")
     s = ad.get("/admin/sauvegarde")
     assert s.status_code == 200 and s.data[:15] == b"SQLite format 3"
+
+
+def test_application_installable():
+    c = APP.test_client()
+    r = c.get("/sw.js")
+    assert r.status_code == 200 and "javascript" in r.content_type and r.headers["Service-Worker-Allowed"] == "/"
+    assert b"fetch" in r.data
+    m = c.get("/static/manifest.webmanifest").get_json()
+    assert m["display"] == "standalone" and m["start_url"] == "/" and any(i["sizes"] == "512x512" for i in m["icons"])
+    assert "serviceWorker" in c.get("/connexion").get_data(as_text=True)

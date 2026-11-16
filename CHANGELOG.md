@@ -10,7 +10,8 @@ Application réorganisée autour du travail quotidien de l'enseignant : prépare
 - **Annonces du directeur** avec accusé de lecture et compteur de non lues.
 - **Accueil** : fiches de la semaine déjà réalisées (jauge).
 - **Sécurité** : blocage après 5 essais faux (10 minutes), changement de mot de passe, réinitialisation et désactivation de compte par le directeur, **journal d'audit**, **sauvegarde téléchargeable** de la base (administrateur), cookie « Secure » et HSTS avec `PEDAFICHE_HTTPS=1`.
-- 29 tests (17 existants + 12 nouveaux). Nouvelle dépendance : `python-docx`.
+- **Application installable** (ordinateur, téléphone, tablette) : manifeste et service worker ; seuls les fichiers de présentation sont gardés, jamais les données de l'école.
+- 30 tests (17 existants + 13 nouveaux). Nouvelle dépendance : `python-docx`.
 
 ## 2.1.0
 - Ajout des résumés (2 617, dont 39 de conjugaison « sans faute »), de la banque d'épreuves et des cahiers de révisions (volumes 1 à 3).

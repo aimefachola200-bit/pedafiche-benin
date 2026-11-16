@@ -21,7 +21,7 @@ git remote add origin https://github.com/aimefachola200-bit/pedafiche-benin.git
 git push -u origin main
 ```
 Une fenêtre du navigateur s'ouvre pour se connecter à GitHub : accepter.
-5. Onglet **Actions** du dépôt : les 29 tests se lancent à chaque envoi (pastille verte = tout passe).
+5. Onglet **Actions** du dépôt : les 30 tests se lancent à chaque envoi (pastille verte = tout passe).
 6. Étiquette de version :
 ```
 git tag -a v2.2.0 -m "2.2.0"

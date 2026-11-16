@@ -35,7 +35,7 @@ python scripts/importer_scolaris.py chemin/vers/SCOLARIS-2.5.1
 Régénère `pedafiche/data/` (fiches par cours, progression, emplois du temps, calendrier) et recopie la banque d'épreuves.
 
 ## Tests
-`pip install -r requirements-dev.txt && python -m pytest -q` (29 tests : accès par classe, CSRF, calendrier, PDF, filigrane, notes, bulletins, blocage de connexion…).
+`pip install -r requirements-dev.txt && python -m pytest -q` (30 tests : accès par classe, CSRF, calendrier, PDF, filigrane, notes, bulletins, blocage de connexion…).
 
 ## Limites connues
 - La maternelle a ses fiches mais pas de planification mensuelle officielle ni d'évaluations dans la banque.

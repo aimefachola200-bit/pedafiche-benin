@@ -112,6 +112,14 @@ def create_app() -> Flask:
         except ValueError:
             return date.today()
 
+    @app.route("/sw.js")
+    def service_worker():
+        """Service worker à la racine (portée « / ») : rend l'application installable."""
+        r = app.send_static_file("sw.js")
+        r.headers["Cache-Control"] = "no-cache"
+        r.headers["Service-Worker-Allowed"] = "/"
+        return r
+
     # ------------------------------------------------------------------ connexion
     @app.route("/connexion", methods=["GET", "POST"])
     def connexion():

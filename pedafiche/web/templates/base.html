@@ -10,4 +10,5 @@
 <div class="tricolore"></div><main>
 {% with m = get_flashed_messages(with_categories=true) %}{% for cat, msg in m %}<div class="flash {{ cat }}">{{ msg }}</div>{% endfor %}{% endwith %}
 {% block corps %}{% endblock %}</main>
-<footer>Conception : {{ config.CONCEPTEUR }}{% if config.CONCEPTEUR_TEL %} — {{ config.CONCEPTEUR_TEL }}{% endif %} · Année scolaire {{ annee }}</footer></body></html>
+<footer>Conception : {{ config.CONCEPTEUR }}{% if config.CONCEPTEUR_TEL %} — {{ config.CONCEPTEUR_TEL }}{% endif %} · Année scolaire {{ annee }}</footer>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script></body></html>
