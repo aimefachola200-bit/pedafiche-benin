@@ -1,12 +1,12 @@
 # Fabrique l'installateur Windows (.exe) et l'application Android autonome (.apk) de pédafiche.
-# Onglet « Actions » > « Fabriquer pédafiche » > « Run workflow », ou publier une étiquette v2.3.0.
+# Onglet « Actions » > « Fabriquer pédafiche » > « Run workflow », ou publier une étiquette v2.4.0.
 name: Fabriquer pédafiche
 on:
   workflow_dispatch:
   push:
     tags: ["v*"]
 env:
-  VERSION: "2.3.0"
+  VERSION: "2.4.0"
 jobs:
   tests:
     runs-on: ubuntu-latest

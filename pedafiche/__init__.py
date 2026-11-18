@@ -1,2 +1,2 @@
 """PédaFiche Bénin — préparation de classe, progression annuelle, évaluations (APC)."""
-__version__ = "2.3.0"
+__version__ = "2.4.0"

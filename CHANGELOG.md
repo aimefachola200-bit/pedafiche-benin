@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.4.0
+- L'enseignant prend sa classe lui-même (menu « Ma classe ») : il crée sa classe ou prend une classe sans titulaire, sans attendre l'attribution du directeur. Il change de classe quand il le souhaite, mais reste dans son périmètre : une classe à la fois, jamais celle d'un collègue. Le directeur garde la main pour les affectations particulières.
+
 ## 2.3.0
 - Installation SANS Internet : installateur Windows (PedaFiche-Installation.exe) et application Android autonome (PedaFiche.apk, téléphone et tablette), fabriqués par GitHub Actions (onglet Actions, étiquette `v2.3.0`) et publiés sur la page Releases.
 - Premier lancement : création du compte directeur/enseignant sur l'appareil, données et sauvegardes locales.

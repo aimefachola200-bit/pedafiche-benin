@@ -4,7 +4,7 @@
 <link rel="manifest" href="{{ url_for('static', filename='manifest.webmanifest') }}"><meta name="theme-color" content="#16315f">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
 <header><img src="{{ url_for('static', filename='icons/icon-192.png') }}" alt=""><strong>PédaFiche Bénin</strong>
-{% if user %}<nav><a href="{{ url_for('accueil') }}">Mes classes</a><a href="{{ url_for('calendrier_page') }}">Calendrier scolaire</a><a href="{{ url_for('annonces') }}">Annonces{% if non_lues %} ({{ non_lues }}){% endif %}</a><a href="{{ url_for('mon_compte') }}">Mon compte</a>
+{% if user %}<nav><a href="{{ url_for('accueil') }}">Mes classes</a>{% if user and user['role'] == 'enseignant' %}<a href="{{ url_for('ma_classe') }}">Ma classe</a>{% endif %}<a href="{{ url_for('calendrier_page') }}">Calendrier scolaire</a><a href="{{ url_for('annonces') }}">Annonces{% if non_lues %} ({{ non_lues }}){% endif %}</a><a href="{{ url_for('mon_compte') }}">Mon compte</a>
 {% if user['role'] in ('admin','directeur') %}<a href="{{ url_for('admin') }}">Administration</a>{% endif %}
 <form method="post" action="{{ url_for('deconnexion') }}" style="display:inline"><input type="hidden" name="_csrf" value="{{ csrf }}"><button>Quitter ({{ user['prenom'] }} {{ user['nom'] }})</button></form></nav>{% endif %}</header>
 <div class="tricolore"></div><main>

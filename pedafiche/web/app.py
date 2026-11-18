@@ -465,6 +465,55 @@ def create_app() -> Flask:
                                classes=db.q("SELECT * FROM classes WHERE annee=? ORDER BY cours, nom", (config.ANNEE,)),
                                aff=aff)
 
+    # ------------------------------------------------------------------ l'enseignant prend sa classe lui-même (sans attendre le directeur)
+    @app.route("/ma-classe", methods=["GET", "POST"])
+    @connecte
+    def ma_classe():
+        """Libre-service : l'enseignant crée sa classe ou prend une classe encore sans titulaire, puis peut en changer.
+        Il reste dans son périmètre : une seule classe à la fois, jamais la classe d'un collègue. Le directeur garde la main."""
+        if g.user["role"] in ROLES_GESTION:
+            return redirect(url_for("admin"))
+        mes = list(mes_classes())
+        if request.method == "POST":
+            a = request.form.get("action", "")
+            try:
+                if a in ("creer", "prendre") and mes:
+                    raise ValueError("Vous avez déjà une classe : utilisez « Changer de classe » pour la quitter d'abord.")
+                if a == "creer":
+                    if request.form.get("cours") not in corpus.COURS:
+                        raise ValueError("Choisissez un cours.")
+                    nom = request.form.get("nom", "").strip()
+                    if not nom:
+                        raise ValueError("Indiquez le nom de la classe.")
+                    prec = db.q("SELECT ecole, circonscription FROM classes WHERE annee=? ORDER BY id DESC LIMIT 1", (config.ANNEE,), un=True)
+                    cid = db.ex("INSERT INTO classes(nom, cours, ecole, circonscription, effectif, annee) VALUES (?,?,?,?,?,?)",
+                                (nom, request.form["cours"], request.form.get("ecole", "").strip() or (prec["ecole"] if prec else ""),
+                                 request.form.get("circonscription", "").strip() or (prec["circonscription"] if prec else ""),
+                                 int(request.form.get("effectif") or 0), config.ANNEE))
+                    db.ex("INSERT OR IGNORE INTO affectations(user_id, classe_id) VALUES (?,?)", (g.user["id"], cid))
+                    audit("classe_creee_par_enseignant", nom)
+                elif a == "prendre":
+                    cid = int(request.form["classe_id"])
+                    libre = db.q("SELECT c.id FROM classes c WHERE c.id=? AND c.annee=? AND NOT EXISTS "
+                                 "(SELECT 1 FROM affectations x WHERE x.classe_id=c.id)", (cid, config.ANNEE), un=True)
+                    if not libre:
+                        raise ValueError("Cette classe a déjà un titulaire.")
+                    db.ex("INSERT OR IGNORE INTO affectations(user_id, classe_id) VALUES (?,?)", (g.user["id"], cid))
+                    audit("classe_prise_par_enseignant", str(cid))
+                elif a == "quitter":
+                    cid = int(request.form["classe_id"])
+                    if cid not in [c["id"] for c in mes]:
+                        abort(403)
+                    db.ex("DELETE FROM affectations WHERE user_id=? AND classe_id=?", (g.user["id"], cid))
+                    audit("classe_quittee_par_enseignant", str(cid))
+                flash("Enregistré.", "ok")
+            except ValueError as exc:
+                flash(str(exc), "erreur")
+            return redirect(url_for("ma_classe"))
+        libres = [] if mes else db.q("SELECT c.* FROM classes c WHERE c.annee=? AND NOT EXISTS "
+                                     "(SELECT 1 FROM affectations x WHERE x.classe_id=c.id) ORDER BY c.cours, c.nom", (config.ANNEE,))
+        return render_template("ma_classe.html", mes=mes, libres=libres)
+
     # ------------------------------------------------------------------ outils de l'enseignant et sécurité
     H = SimpleNamespace(connecte=connecte, gestionnaire=gestionnaire, classe_ou_403=classe_ou_403, ctx_pdf=ctx_pdf,
                         reponse_pdf=reponse_pdf, fiche_ou_404=fiche_ou_404, audit=audit)

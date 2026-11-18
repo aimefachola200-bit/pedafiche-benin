@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block corps %}<h1>Ma classe</h1>
+{% if mes %}<div class="carte"><h2 style="margin-top:0">Ma classe cette année</h2>
+{% for c in mes %}<p><b>{{ c['nom'] }}</b> · {{ LIB_COURS[c['cours']] }} · {{ c['ecole'] }}</p>
+<form method="post" onsubmit="return confirm('Quitter cette classe ? Ses données restent conservées ; vous pourrez en prendre une autre.')"><input type="hidden" name="action" value="quitter"><input type="hidden" name="classe_id" value="{{ c['id'] }}"><button class="btn sec">Changer de classe</button></form>{% endfor %}
+<p class="petit">Vous restez dans votre périmètre : une seule classe à la fois et jamais celle d'un collègue. En cas d'affectation particulière, le directeur peut vous en attribuer d'autres.</p></div>
+{% else %}
+{% if libres %}<div class="carte"><h2 style="margin-top:0">Prendre une classe sans titulaire</h2>{% for c in libres %}<form method="post" style="margin:4px 0"><input type="hidden" name="action" value="prendre"><input type="hidden" name="classe_id" value="{{ c['id'] }}"><b>{{ c['nom'] }}</b> · {{ LIB_COURS[c['cours']] }} <button class="btn petit">Prendre</button></form>{% endfor %}</div>{% endif %}
+<div class="carte"><h2 style="margin-top:0">Créer ma classe</h2><form method="post"><input type="hidden" name="action" value="creer">
+<label>Nom de la classe <input name="nom" required placeholder="CE2 A"></label>
+<label>Cours <select name="cours">{% for k, v in LIB_COURS.items() %}<option value="{{ k }}">{{ v }}</option>{% endfor %}</select></label>
+<label>École <input name="ecole"></label><label>Circonscription <input name="circonscription"></label>
+<label>Effectif <input type="number" name="effectif" min="0" value="0" style="width:80px"></label>
+<p><button class="btn">Créer et commencer</button></p></form></div>{% endif %}{% endblock %}
