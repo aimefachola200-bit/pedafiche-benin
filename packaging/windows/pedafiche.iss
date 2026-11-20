@@ -1,7 +1,7 @@
 ; Inno Setup : fabrique PedaFiche-Installation-x.y.z.exe à partir de dist\PedaFiche
-; Compiler depuis la racine du projet :  iscc /DVersion=2.4.0 packaging\windows\pedafiche.iss
+; Compiler depuis la racine du projet :  iscc /DVersion=2.4.1 packaging\windows\pedafiche.iss
 #ifndef Version
-  #define Version "2.4.0"
+  #define Version "2.4.1"
 #endif
 [Setup]
 AppId={{5C1E8B34-7A2D-4F69-9E0B-3D6A1C4F8E27}

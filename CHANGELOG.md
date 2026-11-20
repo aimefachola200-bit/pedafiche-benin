@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.4.1
+- EPS CP : les fiches officielles des SA 10 à 13 (jeux de corde ; tâche sans contact corporel ; s'opposer à un adversaire sans objet ; jouer seul contre plusieurs adversaires), 19 séances, remplacent les versions conçues ; la SA 13 est ajoutée et la SA 4 est complétée (séances 4 et 5, conçues selon l'APC, à valider par le conseiller pédagogique).
+
 ## 2.4.0
 - L'enseignant prend sa classe lui-même (menu « Ma classe ») : il crée sa classe ou prend une classe sans titulaire, sans attendre l'attribution du directeur. Il change de classe quand il le souhaite, mais reste dans son périmètre : une classe à la fois, jamais celle d'un collègue. Le directeur garde la main pour les affectations particulières.
 

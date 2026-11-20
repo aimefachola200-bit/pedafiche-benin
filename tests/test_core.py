@@ -17,7 +17,7 @@ def texte(contenu: bytes) -> str:
 
 
 def test_corpus_complet():
-    assert sum(len(corpus.fiches_du_cours(c)) for c in corpus.COURS) == 4382
+    assert sum(len(corpus.fiches_du_cours(c)) for c in corpus.COURS) == 4379
     assert all(isinstance(f["sa"], (int, type(None))) for f in corpus.fiches("CE1"))
 
 
