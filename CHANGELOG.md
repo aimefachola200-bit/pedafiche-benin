@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.5.0
+- Interface : menu latéral (tableau de menus) comme les autres applications ; sur téléphone et tablette, bouton « ☰ » ; menu de la classe ouverte avec toutes ses rubriques.
+- Identifiant et mot de passe comme les applications enseignant de GESCOL et SCOLARIS : même règle de mot de passe (8 caractères, lettres et chiffres, pas trop simple, sans l'identifiant), nom et prénoms demandés, identifiant modifiable dans « Mon compte ».
+- Nouvelles fiches et résumés de GESCOL/SCOLARIS (importés : CM2, CE1, CP).
+
 ## 2.4.1
 - EPS CP : les fiches officielles des SA 10 à 13 (jeux de corde ; tâche sans contact corporel ; s'opposer à un adversaire sans objet ; jouer seul contre plusieurs adversaires), 19 séances, remplacent les versions conçues ; la SA 13 est ajoutée et la SA 4 est complétée (séances 4 et 5, conçues selon l'APC, à valider par le conseiller pédagogique).
 

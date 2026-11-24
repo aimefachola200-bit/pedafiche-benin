@@ -1,4 +1,8 @@
-{% extends "base.html" %}{% block corps %}<div class="carte" style="max-width:380px;margin:2rem auto"><h1>Connexion</h1>
-<form method="post"><input type="hidden" name="_csrf" value="{{ csrf }}">
-<p><label>Identifiant<br><input name="identifiant" required autofocus style="width:100%"></label></p>
-<p><label>Mot de passe<br><input type="password" name="mdp" required style="width:100%"></label></p><button class="btn">Se connecter</button></form></div>{% endblock %}
+{% extends "base.html" %}{% block corps %}<div class="carte connexion"><h1>Connexion</h1>
+<p class="petit">Espace de l'enseignant : utilisez votre identifiant et votre mot de passe personnels.</p>
+<form method="post" autocomplete="on"><input type="hidden" name="_csrf" value="{{ csrf }}">
+<p><label>Identifiant<br><input name="identifiant" required autofocus autocomplete="username" autocapitalize="none" spellcheck="false" style="width:100%"></label></p>
+<p><label>Mot de passe<br><input type="password" id="mdp" name="mdp" required autocomplete="current-password" style="width:100%"></label></p>
+<p><label style="display:flex;gap:.4rem;align-items:center"><input type="checkbox" onclick="document.getElementById('mdp').type=this.checked?'text':'password'"> Afficher le mot de passe</label></p>
+<button class="btn" style="width:100%">Se connecter</button></form>
+<p class="petit" style="margin-bottom:0">Après 5 essais faux, le compte est bloqué quelques minutes.</p></div>{% endblock %}

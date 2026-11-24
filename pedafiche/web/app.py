@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import re
 import secrets
 from datetime import date, datetime, timedelta
 from functools import wraps
@@ -43,8 +44,14 @@ def create_app() -> Flask:
         if g.get("user"):
             non_lues = db.q("SELECT COUNT(*) n FROM annonces a WHERE NOT EXISTS (SELECT 1 FROM annonces_lues l "
                             "WHERE l.annonce_id=a.id AND l.user_id=?)", (g.user["id"],), un=True)["n"]
+        menu_classes = []
+        if g.get("user"):
+            try:
+                menu_classes = mes_classes()
+            except Exception:  # le menu ne doit jamais empêcher d'afficher une page
+                menu_classes = []
         return dict(csrf=session["_csrf"], user=g.get("user"), config=config, corpus=corpus,
-                    LIB_COURS=corpus.LIB_COURS, annee=config.ANNEE, non_lues=non_lues)
+                    LIB_COURS=corpus.LIB_COURS, annee=config.ANNEE, non_lues=non_lues, menu_classes=menu_classes)
 
     @app.after_request
     def _entetes(r):
@@ -165,8 +172,19 @@ def create_app() -> Flask:
             prenom = request.form.get("prenom", "").strip()
             ident = request.form.get("identifiant", "").strip().lower()
             mdp = request.form.get("mdp", "")
-            if not nom or not ident or len(mdp) < 8 or mdp != request.form.get("mdp2", ""):
-                flash("Renseignez le nom et l'identifiant ; le mot de passe doit avoir 8 caractères au moins et être répété à l'identique.", "erreur")
+            erreurs = []
+            if not nom or not prenom:
+                erreurs.append("Indiquez votre nom et vos prénoms.")
+            if not re.fullmatch(r"[a-z0-9._-]{3,40}", ident) or ident == "admin":
+                erreurs.append("Identifiant : 3 à 40 lettres, chiffres, points ou tirets (pas « admin »).")
+            e_mdp = securite.erreur_mdp(mdp, ident)
+            if e_mdp:
+                erreurs.append(e_mdp)
+            elif mdp != request.form.get("mdp2", ""):
+                erreurs.append("La confirmation du mot de passe ne correspond pas.")
+            if erreurs:
+                for e in erreurs[:4]:
+                    flash(e, "erreur")
             else:
                 db.ex("INSERT INTO users(identifiant, nom, prenom, role, mdp_hash) VALUES (?,?,?,?,?)",
                       (ident, nom, prenom, "admin", generate_password_hash(mdp)))

@@ -2,13 +2,48 @@
 <title>{% block titre %}PédaFiche Bénin{% endblock %}</title>
 <link rel="icon" href="{{ url_for('static', filename='icons/favicon-32.png') }}"><link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
 <link rel="manifest" href="{{ url_for('static', filename='manifest.webmanifest') }}"><meta name="theme-color" content="#16315f">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
-<header><img src="{{ url_for('static', filename='icons/icon-192.png') }}" alt=""><strong>PédaFiche Bénin</strong>
-{% if user %}<nav><a href="{{ url_for('accueil') }}">Mes classes</a>{% if user and user['role'] == 'enseignant' %}<a href="{{ url_for('ma_classe') }}">Ma classe</a>{% endif %}<a href="{{ url_for('calendrier_page') }}">Calendrier scolaire</a><a href="{{ url_for('annonces') }}">Annonces{% if non_lues %} ({{ non_lues }}){% endif %}</a><a href="{{ url_for('mon_compte') }}">Mon compte</a>
-{% if user['role'] in ('admin','directeur') %}<a href="{{ url_for('admin') }}">Administration</a>{% endif %}
-<form method="post" action="{{ url_for('deconnexion') }}" style="display:inline"><input type="hidden" name="_csrf" value="{{ csrf }}"><button>Quitter ({{ user['prenom'] }} {{ user['nom'] }})</button></form></nav>{% endif %}</header>
-<div class="tricolore"></div><main>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body{% if user %} class="avec-menu"{% endif %}>
+<header>{% if user %}<button type="button" id="burger" aria-label="Menu" aria-controls="menu">&#9776;</button>{% endif %}<img src="{{ url_for('static', filename='icons/icon-192.png') }}" alt=""><strong>PédaFiche Bénin</strong>
+{% if user %}<span class="moi">{{ user['prenom'] }} {{ user['nom'] }}</span>{% endif %}</header>
+<div class="tricolore"></div>
+<div class="mise">
+{% if user %}{% set ep = request.endpoint or '' %}{% set cid = (request.view_args or {}).get('cid') %}
+<aside id="menu"><nav aria-label="Menu principal">
+<div class="mgroupe">Mon espace</div>
+<a href="{{ url_for('accueil') }}"{% if ep == 'accueil' %} class="actif"{% endif %}>&#127968; Tableau de bord</a>
+{% if user['role'] == 'enseignant' %}<a href="{{ url_for('ma_classe') }}"{% if ep == 'ma_classe' %} class="actif"{% endif %}>&#127979; Ma classe</a>{% endif %}
+<a href="{{ url_for('calendrier_page') }}"{% if ep == 'calendrier_page' %} class="actif"{% endif %}>&#128197; Calendrier scolaire</a>
+<a href="{{ url_for('annonces') }}"{% if ep == 'annonces' %} class="actif"{% endif %}>&#128226; Annonces{% if non_lues %} ({{ non_lues }}){% endif %}</a>
+{% if menu_classes %}<div class="mgroupe">Mes classes</div>
+{% for c in menu_classes %}<a href="{{ url_for('classe', cid=c['id']) }}"{% if cid == c['id'] and ep == 'classe' %} class="actif"{% endif %}>&#128218; {{ c['nom'] }}</a>
+{% if cid == c['id'] %}<div class="sous">
+<a href="{{ url_for('fiches', cid=cid) }}"{% if ep == 'fiches' %} class="actif"{% endif %}>Fiches</a>
+<a href="{{ url_for('mes_fiches', cid=cid) }}"{% if ep in ('mes_fiches','fiche_nouvelle','fiche_perso') %} class="actif"{% endif %}>Mes fiches</a>
+<a href="{{ url_for('resumes', cid=cid) }}"{% if ep == 'resumes' %} class="actif"{% endif %}>Résumés</a>
+<a href="{{ url_for('prog', cid=cid) }}"{% if ep == 'prog' %} class="actif"{% endif %}>Progression annuelle</a>
+<a href="{{ url_for('emploi_du_temps', cid=cid) }}"{% if ep == 'emploi_du_temps' %} class="actif"{% endif %}>Emploi du temps</a>
+<a href="{{ url_for('journal', cid=cid) }}"{% if ep == 'journal' %} class="actif"{% endif %}>Cahier journal</a>
+<a href="{{ url_for('evaluations', cid=cid) }}"{% if ep == 'evaluations' %} class="actif"{% endif %}>Évaluations</a>
+<a href="{{ url_for('eleves', cid=cid) }}"{% if ep == 'eleves' %} class="actif"{% endif %}>Élèves</a>
+<a href="{{ url_for('appel', cid=cid) }}"{% if ep == 'appel' %} class="actif"{% endif %}>Appel</a>
+<a href="{{ url_for('absences', cid=cid) }}"{% if ep == 'absences' %} class="actif"{% endif %}>Absences</a>
+<a href="{{ url_for('notes', cid=cid) }}"{% if ep in ('notes','saisie_notes') %} class="actif"{% endif %}>Carnet de notes</a>
+<a href="{{ url_for('resultats', cid=cid) }}"{% if ep == 'resultats' %} class="actif"{% endif %}>Résultats et bulletins</a></div>{% endif %}
+{% endfor %}{% endif %}
+{% if user['role'] in ('admin','directeur') %}<div class="mgroupe">Administration</div>
+<a href="{{ url_for('admin') }}"{% if ep == 'admin' %} class="actif"{% endif %}>&#9881; Utilisateurs et classes</a>
+<a href="{{ url_for('journal_audit') }}"{% if ep == 'journal_audit' %} class="actif"{% endif %}>&#128221; Journal d'audit</a>
+{% if user['role'] == 'admin' %}<a href="{{ url_for('sauvegarde') }}">&#128190; Sauvegarde</a>{% endif %}{% endif %}
+<div class="mgroupe">Mon compte</div>
+<a href="{{ url_for('mon_compte') }}"{% if ep == 'mon_compte' %} class="actif"{% endif %}>&#128273; Identifiant et mot de passe</a>
+<form method="post" action="{{ url_for('deconnexion') }}"><input type="hidden" name="_csrf" value="{{ csrf }}"><button>&#128682; Quitter</button></form>
+</nav></aside><div id="voile"></div>{% endif %}
+<main>
 {% with m = get_flashed_messages(with_categories=true) %}{% for cat, msg in m %}<div class="flash {{ cat }}">{{ msg }}</div>{% endfor %}{% endwith %}
-{% block corps %}{% endblock %}</main>
+{% block corps %}{% endblock %}</main></div>
 <footer>Conception : {{ config.CONCEPTEUR }}{% if config.CONCEPTEUR_TEL %} — {{ config.CONCEPTEUR_TEL }}{% endif %} · Année scolaire {{ annee }}</footer>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script></body></html>
+<script>(function(){var b=document.getElementById('burger'),v=document.getElementById('voile');function t(o){document.body.classList.toggle('menu-ouvert',o);}
+if(b){b.addEventListener('click',function(){t(!document.body.classList.contains('menu-ouvert'));});}
+if(v){v.addEventListener('click',function(){t(false);});}
+document.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click',function(){t(false);});});})();
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script></body></html>

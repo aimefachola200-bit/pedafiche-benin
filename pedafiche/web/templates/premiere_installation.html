@@ -1,9 +1,9 @@
-{% extends "base.html" %}{% block corps %}<div class="carte" style="max-width:420px;margin:2rem auto"><h1>Bienvenue dans pédafiche</h1>
-<p class="aide">Première utilisation : créez votre compte (directeur ou enseignant principal). Il reste sur cet appareil et fonctionne sans Internet.</p>
+{% extends "base.html" %}{% block corps %}<div class="carte connexion"><h1>Bienvenue dans PédaFiche</h1>
+<p class="petit">Première utilisation : créez votre compte. Il reste sur cet appareil et fonctionne sans Internet.</p>
 <form method="post"><input type="hidden" name="_csrf" value="{{ csrf }}">
-<p><label>Nom<br><input name="nom" required autofocus style="width:100%"></label></p>
-<p><label>Prénoms<br><input name="prenom" style="width:100%"></label></p>
-<p><label>Identifiant (sans espace)<br><input name="identifiant" required autocomplete="username" style="width:100%"></label></p>
-<p><label>Mot de passe (8 caractères au moins)<br><input type="password" name="mdp" required minlength="8" autocomplete="new-password" style="width:100%"></label></p>
+<p><label>Nom<br><input name="nom" required autofocus autocomplete="family-name" style="width:100%"></label></p>
+<p><label>Prénoms<br><input name="prenom" required autocomplete="given-name" style="width:100%"></label></p>
+<p><label>Identifiant (3 à 40 lettres, chiffres, points ou tirets)<br><input name="identifiant" required autocomplete="username" autocapitalize="none" spellcheck="false" pattern="[A-Za-z0-9._\-]{3,40}" style="width:100%"></label></p>
+<p><label>Mot de passe (8 caractères au moins, lettres et chiffres)<br><input type="password" name="mdp" required minlength="8" autocomplete="new-password" style="width:100%"></label></p>
 <p><label>Répéter le mot de passe<br><input type="password" name="mdp2" required minlength="8" autocomplete="new-password" style="width:100%"></label></p>
-<button class="btn">Créer mon compte</button></form></div>{% endblock %}
+<button class="btn" style="width:100%">Créer mon compte</button></form></div>{% endblock %}

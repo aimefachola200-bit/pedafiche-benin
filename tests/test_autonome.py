@@ -15,7 +15,7 @@ h = c.get("/premiere-installation").get_data(as_text=True)
 jeton = re.search(r'name="_csrf" value="([^"]+)"', h).group(1)
 r = c.post("/premiere-installation", data={"_csrf": jeton, "nom": "KANLISSOU", "identifiant": "Dom", "mdp": "court", "mdp2": "court"})
 assert r.status_code == 200 and "8 caract" in r.get_data(as_text=True)
-r = c.post("/premiere-installation", data={"_csrf": jeton, "nom": "KANLISSOU", "identifiant": "Dom", "mdp": "motdepasse1", "mdp2": "motdepasse1"})
+r = c.post("/premiere-installation", data={"_csrf": jeton, "nom": "KANLISSOU", "prenom": "Dominique", "identifiant": "Dom", "mdp": "motdepasse1", "mdp2": "motdepasse1"})
 assert r.status_code == 302
 r = c.get("/premiere-installation"); assert r.status_code == 302 and "connexion" in r.headers["Location"]
 assert c.get("/connexion").status_code == 200

@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import os
+import re
 import sqlite3
+import unicodedata
 import tempfile
 from datetime import datetime, timedelta
 
@@ -15,9 +17,39 @@ MAX_ESSAIS = int(os.environ.get("PEDAFICHE_MAX_ESSAIS", "5"))
 BLOCAGE_MIN = int(os.environ.get("PEDAFICHE_BLOCAGE_MIN", "10"))
 
 
-def mot_de_passe_valide(mdp: str) -> None:
-    if len(mdp) < 8 or mdp.isalpha() or mdp.isdigit():
-        raise ValueError("Mot de passe : 8 caractères minimum, lettres et chiffres.")
+FAIBLES = {
+    "admin", "admin123", "admin1234", "administrateur", "password", "password1", "motdepasse", "azerty",
+    "azerty123", "azertyuiop", "qwerty", "qwerty123", "123456", "1234567", "12345678", "123456789", "1234567890",
+    "00000000", "11111111", "demo", "demo1234", "scolaris", "scolaris1", "gescol", "gescol1", "pedafiche",
+    "pedafiche1", "ecole123", "ecole1234", "bonjour1", "benin123", "benin2026", "abc12345", "abcd1234",
+    "directeur", "directeur1", "enseignant", "enseignant1",
+}
+
+
+def _norm(t) -> str:
+    return unicodedata.normalize("NFD", str(t or "")).encode("ascii", "ignore").decode().lower()
+
+
+def erreur_mdp(mdp: str, identifiant: str = ""):
+    """Même règle que les applications enseignant de GESCOL et SCOLARIS : message d'erreur ou None."""
+    m = str(mdp or "")
+    if len(m) < 8:
+        return "Le mot de passe doit faire au moins 8 caractères."
+    if not re.search(r"[A-Za-zÀ-ÿ]", m) or not re.search(r"\d", m):
+        return "Le mot de passe doit contenir au moins une lettre et un chiffre."
+    n = _norm(m)
+    if n in FAIBLES or len(set(n)) <= 2:
+        return "Ce mot de passe est trop connu ou trop simple : choisissez-en un autre."
+    ident = _norm(identifiant).strip()
+    if ident and len(ident) >= 3 and ident in n:
+        return "Le mot de passe ne doit pas contenir l'identifiant."
+    return None
+
+
+def mot_de_passe_valide(mdp: str, identifiant: str = "") -> None:
+    e = erreur_mdp(mdp, identifiant)
+    if e:
+        raise ValueError(e)
 
 
 def maintenant() -> datetime:
@@ -50,6 +82,22 @@ def register(app, H):
     @app.route("/mon-compte", methods=["GET", "POST"])
     @connecte
     def mon_compte():
+        if request.method == "POST" and request.form.get("action") == "identifiant":
+            nv = (request.form.get("identifiant") or "").strip().lower()
+            if not check_password_hash(g.user["mdp_hash"], request.form.get("mdp", "")):
+                flash("Mot de passe incorrect : l'identifiant n'a pas été changé.", "erreur")
+            elif not re.fullmatch(r"[a-z0-9._-]{3,40}", nv) or nv == "admin":
+                flash("Identifiant : 3 à 40 lettres, chiffres, points ou tirets (pas « admin »).", "erreur")
+            elif nv == g.user["identifiant"]:
+                flash("C'est déjà votre identifiant.", "erreur")
+            elif db.q("SELECT 1 FROM users WHERE identifiant=? AND id<>?", (nv, g.user["id"]), un=True):
+                flash("Cet identifiant est déjà pris : choisissez-en un autre.", "erreur")
+            else:
+                ancien_id = g.user["identifiant"]
+                db.ex("UPDATE users SET identifiant=? WHERE id=?", (nv, g.user["id"]))
+                H.audit("identifiant_change", f"{ancien_id} -> {nv}")
+                flash(f"Identifiant modifié : connectez-vous désormais avec « {nv} ».", "ok")
+            return redirect(url_for("mon_compte"))
         if request.method == "POST":
             try:
                 if not check_password_hash(g.user["mdp_hash"], request.form.get("ancien", "")):
@@ -57,7 +105,7 @@ def register(app, H):
                 nouveau = request.form.get("nouveau", "")
                 if nouveau != request.form.get("confirmation", ""):
                     raise ValueError("La confirmation ne correspond pas.")
-                mot_de_passe_valide(nouveau)
+                mot_de_passe_valide(nouveau, g.user["identifiant"])
                 db.ex("UPDATE users SET mdp_hash=? WHERE id=?", (generate_password_hash(nouveau), g.user["id"]))
                 H.audit("mdp_change", "")
                 flash("Mot de passe modifié.", "ok")

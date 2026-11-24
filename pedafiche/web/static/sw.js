@@ -1,6 +1,6 @@
 /* PédaFiche Bénin : application installable (ordinateur, téléphone, tablette).
    Seuls les fichiers de présentation sont gardés : jamais les pages ni les données de l'école. */
-const CACHE = 'pedafiche-v2.2.0';
+const CACHE = 'pedafiche-v2.5.0';
 const FICHIERS = ['/static/style.css', '/static/icons/icon-192.png', '/static/icons/icon-512.png', '/static/icons/favicon-32.png'];
 self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FICHIERS)).then(() => self.skipWaiting())));
 self.addEventListener('activate', e => e.waitUntil(caches.keys()

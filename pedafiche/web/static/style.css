@@ -22,3 +22,30 @@ input,select,textarea{font:inherit;padding:.35rem;border:1px solid #b9c4b9;borde
 @media print{header,footer,.barre,.btn{display:none}}
 .jauge{height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin-top:.3rem}.jauge span{display:block;height:100%;background:#008751}
 h3{font-size:1rem;color:var(--v2);margin:.6rem 0 .2rem}label{display:block}
+/* v2.5.0 : menu latéral (tableau de menus) comme les autres applications */
+header .moi{margin-left:auto;font-size:.9rem;opacity:.9}
+#burger{display:none;font-size:1.4rem;line-height:1;padding:.2rem .6rem}
+.mise{display:flex;align-items:flex-start}
+.mise>main{flex:1;min-width:0;margin:1rem auto;max-width:1100px;width:100%}
+#menu{width:250px;flex:none;background:#fff;border-right:1px solid var(--bord);padding:.6rem .5rem 1rem;position:sticky;top:0;max-height:100vh;overflow-y:auto;align-self:flex-start}
+#menu nav{display:flex;flex-direction:column;gap:2px}
+#menu a,#menu button{display:block;color:var(--txt);text-decoration:none;padding:.5rem .7rem;border-radius:8px;background:none;border:0;font:inherit;text-align:left;width:100%;cursor:pointer}
+#menu a:hover,#menu button:hover{background:#eef2f7}
+#menu a.actif{background:var(--v);color:#fff}
+#menu .mgroupe{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#6b7280;margin:.8rem .7rem .2rem}
+#menu .sous{margin:0 0 .3rem .9rem;border-left:2px solid var(--bord);padding-left:.3rem}
+#menu .sous a{padding:.35rem .6rem;font-size:.92rem}
+#menu form{margin:0}
+#voile{display:none}
+.carte.connexion{max-width:400px;margin:2rem auto}
+.nav-mobile{display:none}
+input,select,textarea{font-size:16px}
+@media (max-width:899px){
+  #burger{display:inline-block}
+  #menu{position:fixed;left:0;top:0;bottom:0;max-height:none;z-index:60;transform:translateX(-105%);transition:transform .2s;box-shadow:2px 0 12px rgba(0,0,0,.25);width:280px;max-width:85vw}
+  body.menu-ouvert #menu{transform:none}
+  body.menu-ouvert #voile{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:55}
+  .nav-mobile{display:block}
+  header{position:sticky;top:0;z-index:40}
+}
+@media print{#menu,#burger,#voile{display:none!important}.mise>main{max-width:none}}
