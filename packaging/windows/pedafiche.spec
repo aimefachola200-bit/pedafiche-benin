@@ -15,7 +15,7 @@ a = Analysis(
     [os.path.join(RACINE, "pedafiche_serveur.py")],
     pathex=[RACINE],
     datas=[donnees("web/templates"), donnees("web/static"), donnees("data"), donnees("fonts"), donnees("banque")],
-    hiddenimports=collect_submodules("pedafiche") + ["waitress", "docx", "lxml", "lxml.etree", "pypdf", "tkinter"]
+    hiddenimports=collect_submodules("pedafiche") + ["waitress", "docx", "lxml", "lxml.etree", "pypdf", "tkinter", "openpyxl", "et_xmlfile"]
     + collect_submodules("reportlab.graphics.barcode") + collect_submodules("docx") + collect_submodules("waitress"),
     excludes=["pytest", "IPython", "matplotlib", "numpy"],
     noarchive=False,

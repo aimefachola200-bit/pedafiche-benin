@@ -8,7 +8,7 @@ from datetime import date, datetime, timedelta
 
 from flask import abort, flash, g, redirect, render_template, request, url_for
 
-from .. import calendrier, config, corpus, db, docx_export, notes as N, pdf, progression
+from .. import calendrier, config, corpus, db, docx_export, notes as N, pdf, progression, xlsx_io as X
 
 CHAMPS_FICHE = (("cd", "Compétence disciplinaire"), ("ct", "Compétences transversales"),
                 ("contenus", "Contenus / connaissances"), ("strategies", "Stratégies"),
@@ -291,15 +291,24 @@ def register(app, H):
             elif a == "importer":
                 f = request.files.get("fichier")
                 texte = request.form.get("texte", "")
-                if f and f.filename:
+                lignes = None
+                if f and f.filename and f.filename.lower().endswith((".xlsx", ".xlsm")):
+                    try:
+                        lignes, err_x = X.lire_eleves(f.read(3_000_000), c["cours"])
+                    except ImportError:
+                        lignes, err_x = [], "Le composant Excel (openpyxl) n'est pas installé."
+                    if err_x:
+                        flash(err_x, "erreur")
+                elif f and f.filename:
                     brut = f.read(1_000_000)
                     try:
                         texte = brut.decode("utf-8-sig")
                     except UnicodeDecodeError:
                         texte = brut.decode("latin-1")
-                lignes = lire_csv(texte)
+                if lignes is None:
+                    lignes = lire_csv(texte)
                 if not lignes:
-                    flash("Aucun élève trouvé. Format : nom;prénom;sexe;naissance;matricule;tuteur;téléphone.", "erreur")
+                    flash("Aucun élève trouvé. Utilisez le modèle Excel (Nom, Prénoms, Sexe, Date de naissance…) ou le format CSV : nom;prénom;sexe;naissance;matricule;tuteur;téléphone.", "erreur")
                 else:
                     deja = {(e["nom"].upper(), e["prenom"].lower()) for e in eleves_de(cid)}
                     n = 0
@@ -332,6 +341,23 @@ def register(app, H):
             f"LISTE DES ÉLÈVES — {c['nom']}", f"{c['ecole']} · {len(ls)} élèves (G : {g_n} · F : {f_n}) · Année {config.ANNEE}",
             ["N°", "Matricule", "Nom et prénoms", "Sexe", "Naissance", "Parent / tuteur", "Téléphone"], lignes,
             [0.6, 1.4, 4, 0.7, 1.4, 2.6, 1.6], H.ctx_pdf(c), 9), f"eleves_{cid}.pdf")
+
+    MIME_XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
+    def reponse_xlsx(octets, nom):
+        r = app.response_class(octets, mimetype=MIME_XLSX)
+        r.headers["Content-Disposition"] = f'attachment; filename="{nom}"'
+        return r
+
+    @app.route("/classe/<int:cid>/eleves-modele.xlsx")
+    @connecte
+    def eleves_modele_xlsx(cid):
+        c = classe_ou_403(cid)
+        try:
+            return reponse_xlsx(X.modele_eleves(c["cours"], eleves_de(cid)), f"eleves_{c['cours']}_{cid}.xlsx")
+        except ImportError:
+            flash("Le composant Excel (openpyxl) n'est pas installé.", "erreur")
+            return redirect(url_for("eleves", cid=cid))
 
     @app.route("/modele-eleves.csv")
     @connecte
@@ -422,7 +448,7 @@ def register(app, H):
             try:
                 titre = request.form["titre"].strip()
                 mat = request.form["matiere"]
-                bareme = _nombre(request.form.get("bareme", "10")) or 10
+                bareme = _nombre(request.form.get("bareme", "20")) or 20
                 coef = _nombre(request.form.get("coef", "1")) or 1
                 jour = date.fromisoformat(request.form["jour"]).isoformat()
                 per = request.form.get("periode", "T1")
@@ -473,15 +499,50 @@ def register(app, H):
         return render_template("saisie_notes.html", c=c, ev=ev, liste=els, nn=nn,
                                remed=N.a_remedier(els, dict(ev), nn))
 
+    @app.route("/classe/<int:cid>/notes/<int:eid>/modele.xlsx")
+    @connecte
+    def notes_modele_xlsx(cid, eid):
+        classe_ou_403(cid)
+        ev = evaluation_ou_404(cid, eid)
+        nn = toutes_notes(cid)
+        els = eleves_de(cid)
+        try:
+            return reponse_xlsx(X.modele_notes(els, dict(ev), {e["id"]: nn.get((eid, e["id"])) for e in els},
+                                               corpus.LIB_MAT.get(ev["matiere"], ev["matiere"])), f"notes_{eid}.xlsx")
+        except ImportError:
+            flash("Le composant Excel (openpyxl) n'est pas installé.", "erreur")
+            return redirect(url_for("saisie_notes", cid=cid, eid=eid))
+
+    @app.route("/classe/<int:cid>/notes/<int:eid>/importer", methods=["POST"])
+    @connecte
+    def notes_importer_xlsx(cid, eid):
+        classe_ou_403(cid)
+        ev = evaluation_ou_404(cid, eid)
+        f = request.files.get("fichier")
+        if not f or not f.filename or not f.filename.lower().endswith((".xlsx", ".xlsm")):
+            flash("Choisissez le fichier de notes Excel (.xlsx).", "erreur")
+            return redirect(url_for("saisie_notes", cid=cid, eid=eid))
+        try:
+            res, msg = X.lire_notes(f.read(3_000_000), eleves_de(cid), dict(ev), ev["matiere"])
+        except ImportError:
+            res, msg = {}, ["Le composant Excel (openpyxl) n'est pas installé."]
+        for el_id, v in res.items():
+            db.ex("INSERT INTO notes(eval_id, eleve_id, valeur) VALUES (?,?,?) "
+                  "ON CONFLICT(eval_id, eleve_id) DO UPDATE SET valeur=excluded.valeur", (eid, el_id, v))
+        if res:
+            H.audit("notes_import_xlsx", f"évaluation {eid} : {len(res)} note(s)")
+        flash(f"{len(res)} note(s) importée(s)." + (" À vérifier : " + " ; ".join(msg[:5]) if msg else ""), "ok" if res and not msg else "erreur")
+        return redirect(url_for("saisie_notes", cid=cid, eid=eid))
+
     @app.route("/classe/<int:cid>/notes/<int:eid>/remediation.pdf")
     @connecte
     def remediation_pdf(cid, eid):
         c = classe_ou_403(cid)
         ev = evaluation_ou_404(cid, eid)
         r = N.a_remedier(eleves_de(cid), dict(ev), toutes_notes(cid))
-        lignes = [[str(i), f"{x['eleve']['nom']} {x['eleve']['prenom']}", f"{x['note10']:g} / 10", ""] for i, x in enumerate(r, 1)]
+        lignes = [[str(i), f"{x['eleve']['nom']} {x['eleve']['prenom']}", f"{x['note20']:g} / 20", ""] for i, x in enumerate(r, 1)]
         return H.reponse_pdf(pdf.tableau_pdf(
-            f"REMÉDIATION — {ev['titre']}", f"{c['nom']} · {corpus.LIB_MAT.get(ev['matiere'], ev['matiere'])} · élèves sous {N.SEUIL:g}/10",
+            f"REMÉDIATION — {ev['titre']}", f"{c['nom']} · {corpus.LIB_MAT.get(ev['matiere'], ev['matiere'])} · élèves sous {N.SEUIL:g}/20",
             ["N°", "Nom et prénoms", "Note", "Difficultés repérées / activité de remédiation"], lignes or [["", "Aucun élève sous le seuil.", "", ""]],
             [0.6, 4, 1.4, 6], H.ctx_pdf(c), 9), f"remediation_{eid}.pdf")
 
@@ -515,7 +576,7 @@ def register(app, H):
                   for l in sorted(res["lignes"], key=lambda x: (x["rang"] is None, x["rang"] or 0, x["eleve"]["nom"]))]
         s = res["stats"]
         lib = dict(N.PERIODES).get(per, "Année")
-        sous = (f"{c['ecole']} · {lib} · moyenne de la classe : {s['moyenne'] if s['moyenne'] is not None else '—'}/10 · "
+        sous = (f"{c['ecole']} · {lib} · moyenne de la classe : {s['moyenne'] if s['moyenne'] is not None else '—'}/20 · "
                 f"taux de réussite : {s['taux_reussite'] if s['taux_reussite'] is not None else '—'} %")
         return H.reponse_pdf(pdf.tableau_pdf(
             f"RÉSULTATS — {c['nom']}", sous, ["Rang", "Nom et prénoms"] + [corpus.LIB_MAT.get(m, m) for m in mats] + ["Moyenne", "Appréciation"],
@@ -525,11 +586,11 @@ def register(app, H):
     def bulletin_story(c, res, l, per):
         n_abs = db.q("SELECT COUNT(*) n FROM presences WHERE eleve_id=? AND statut='A'", (l["eleve"]["id"],), un=True)["n"]
         n_nj = db.q("SELECT COUNT(*) n FROM presences WHERE eleve_id=? AND statut='A' AND justifie=0", (l["eleve"]["id"],), un=True)["n"]
-        lignes = [[corpus.LIB_MAT.get(m, m), "—" if l["par_matiere"][m] is None else f"{l['par_matiere'][m]:g} / 10",
+        lignes = [[corpus.LIB_MAT.get(m, m), "—" if l["par_matiere"][m] is None else f"{l['par_matiere'][m]:g} / 20",
                    N.appreciation(l["par_matiere"][m])] for m in res["matieres"]]
-        lignes.append(["MOYENNE GÉNÉRALE", "—" if l["moyenne"] is None else f"{l['moyenne']:g} / 10", l["appreciation"]])
+        lignes.append(["MOYENNE GÉNÉRALE", "—" if l["moyenne"] is None else f"{l['moyenne']:g} / 20", l["appreciation"]])
         lignes.append(["Rang", f"{l['rang']} / {res['stats']['classes']}" if l["rang"] else "—",
-                       f"Moyenne de la classe : {res['stats']['moyenne'] if res['stats']['moyenne'] is not None else '—'} / 10"])
+                       f"Moyenne de la classe : {res['stats']['moyenne'] if res['stats']['moyenne'] is not None else '—'} / 20"])
         lignes.append(["Absences", f"{n_abs} (dont {n_nj} non justifiées)", ""])
         return lignes
 

@@ -1,4 +1,4 @@
-# Met à jour les fiches de PédaFiche depuis SCOLARIS (dépôt public) puis enregistre le résultat.
+# Met à jour les fiches de PédaFiche et les modèles Excel officiels depuis SCOLARIS (dépôt public) puis enregistre le résultat.
 # Onglet « Actions » > « Importer les fiches de SCOLARIS » > « Run workflow ».
 name: Importer les fiches de SCOLARIS
 on:
@@ -17,11 +17,15 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
       - run: python scripts/importer_scolaris.py _scolaris
+      - name: Modèles Excel officiels
+        run: |
+          mkdir -p pedafiche/data/modeles
+          cp _scolaris/modeles/educmaster_modele_classe.xlsx _scolaris/modeles/educmaster_modele_notes_primaire.xlsx pedafiche/data/modeles/
       - run: rm -rf _scolaris
       - name: Enregistrer
         run: |
           git config user.name "pedafiche-bot"
           git config user.email "pedafiche-bot@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet && echo "Rien de nouveau." || git commit -m "Fiches et résumés importés de SCOLARIS"
+          git diff --cached --quiet && echo "Rien de nouveau." || git commit -m "Fiches, resumes et modeles Excel importes de SCOLARIS"
           git push

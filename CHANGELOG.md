@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.5.1
+- Notes sur 20 comme dans GESCOL et SCOLARIS : barème par défaut 20, moyenne de passage 10/20, appréciations adaptées ; les évaluations déjà saisies sur un autre barème restent correctement converties.
+- Excel : modèle officiel des élèves (le même que GESCOL/SCOLARIS) à télécharger et à importer ; feuille de notes Excel par évaluation, à télécharger et à importer.
+- Fiches et résumés de GESCOL/SCOLARIS 2.9.3 (36 nouvelles fiches d'Éducation sociale et d'EPS) et modèles Excel officiels importés par le workflow « Importer les fiches de SCOLARIS ».
+
 ## 2.5.0
 - Interface : menu latéral (tableau de menus) comme les autres applications ; sur téléphone et tablette, bouton « ☰ » ; menu de la classe ouverte avec toutes ses rubriques.
 - Identifiant et mot de passe comme les applications enseignant de GESCOL et SCOLARIS : même règle de mot de passe (8 caractères, lettres et chiffres, pas trop simple, sans l'identifiant), nom et prénoms demandés, identifiant modifiable dans « Mon compte ».

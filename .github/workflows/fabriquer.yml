@@ -6,7 +6,7 @@ on:
   push:
     tags: ["v*"]
 env:
-  VERSION: "2.5.0"
+  VERSION: "2.5.1"
 jobs:
   tests:
     runs-on: ubuntu-latest

@@ -17,7 +17,8 @@ PY = os.path.join(ICI, "app", "src", "main", "python")
 LIBS = [("flask", "flask"), ("werkzeug", "werkzeug"), ("jinja2", "jinja2"), ("markupsafe", "markupsafe"),
         ("itsdangerous", "itsdangerous"), ("click", "click"), ("blinker", "blinker"),
         ("reportlab", "reportlab"), ("charset-normalizer", "charset_normalizer"),
-        ("pypdf", "pypdf"), ("python-docx", "docx"), ("typing-extensions", "typing_extensions")]
+        ("pypdf", "pypdf"), ("python-docx", "docx"), ("typing-extensions", "typing_extensions"),
+        ("openpyxl", "openpyxl"), ("et-xmlfile", "et_xmlfile")]
 GARDER = {"pedafiche_android.py"}
 
 

@@ -3,6 +3,10 @@
 <form method="post"><input type="hidden" name="_csrf" value="{{ csrf }}"><table><tr><th>N°</th><th>Élève</th><th>Note / {{ '%g'|format(ev['bareme']) }}</th></tr>
 {% for e in liste %}<tr><td>{{ loop.index }}</td><td>{{ e['nom'] }} {{ e['prenom'] }}</td><td><input name="n{{ e['id'] }}" size="6" inputmode="decimal" value="{{ '%g'|format(nn[(ev['id'], e['id'])]) if nn.get((ev['id'], e['id'])) is not none else '' }}"></td></tr>{% endfor %}</table>
 <div class="barre"><button class="btn">Enregistrer les notes</button><a class="btn sec" href="{{ url_for('notes', cid=c['id']) }}">Retour</a><a class="btn sec" href="{{ url_for('resultats', cid=c['id']) }}">Résultats</a></div></form>
-<div class="carte"><h2>Élèves à remédier (sous {{ '5' }}/10) — {{ remed|length }}</h2>{% if remed %}<ul>{% for r in remed %}<li>{{ r['eleve']['nom'] }} {{ r['eleve']['prenom'] }} — {{ '%g'|format(r['note10']) }}/10</li>{% endfor %}</ul>
+<form class="carte" method="post" action="{{ url_for('notes_importer_xlsx', cid=c['id'], eid=ev['id']) }}" enctype="multipart/form-data"><h2>Notes par Excel</h2><input type="hidden" name="_csrf" value="{{ csrf }}">
+<p class="petit">Téléchargez la feuille, saisissez les notes dans « Note obtenue », puis importez-la (le modèle officiel multi-matières est accepté).</p>
+<p><a class="btn sec" href="{{ url_for('notes_modele_xlsx', cid=c['id'], eid=ev['id']) }}">Feuille de notes (Excel)</a></p>
+<p><input type="file" name="fichier" accept=".xlsx,.xlsm"></p><button class="btn">Importer les notes</button></form>
+<div class="carte"><h2>Élèves à remédier (sous {{ '%g'|format(10) }}/20) — {{ remed|length }}</h2>{% if remed %}<ul>{% for r in remed %}<li>{{ r['eleve']['nom'] }} {{ r['eleve']['prenom'] }} — {{ '%g'|format(r['note20']) }}/20</li>{% endfor %}</ul>
 <a class="btn" href="{{ url_for('remediation_pdf', cid=c['id'], eid=ev['id']) }}" target="_blank">Fiche de remédiation (PDF)</a>{% else %}<p class="petit">Personne sous le seuil, ou notes non encore saisies.</p>{% endif %}</div>
 <form method="post" onsubmit="return confirm('Supprimer cette évaluation et ses notes ?')"><input type="hidden" name="_csrf" value="{{ csrf }}"><input type="hidden" name="action" value="supprimer"><button class="btn rouge">Supprimer l'évaluation</button></form>{% endblock %}

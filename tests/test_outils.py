@@ -14,8 +14,8 @@ def test_rangs_ex_aequo_et_none():
     assert N.rangs({1: 8, 2: 8, 3: 5, 4: None}) == {1: 1, 2: 1, 3: 3}
 
 
-def test_sur10_et_moyenne_ponderee():
-    assert N.sur10(15, 20) == 7.5 and N.sur10(None, 10) is None
+def test_sur20_et_moyenne_ponderee():
+    assert N.sur20(15, 20) == 15 and N.sur20(5, 10) == 10 and N.sur20(None, 10) is None
     assert N.moyenne_ponderee([(8, 1), (5, 2)]) == 6.0
 
 
@@ -26,8 +26,8 @@ def test_resultats_et_remediation():
     nn = {(10, 1): 16, (11, 1): 8, (10, 2): 6, (11, 2): 4, (10, 3): None}
     r = N.resultats(els, evs, nn, "T1")
     l = {x["eleve"]["id"]: x for x in r["lignes"]}
-    assert l[1]["moyenne"] == 8.0 and l[1]["rang"] == 1 and l[1]["appreciation"] == "Très bien"
-    assert l[2]["moyenne"] == 3.5 and l[3]["moyenne"] is None and l[3]["rang"] is None
+    assert l[1]["moyenne"] == 16.0 and l[1]["rang"] == 1 and l[1]["appreciation"] == "Très bien"
+    assert l[2]["moyenne"] == 7.0 and l[3]["moyenne"] is None and l[3]["rang"] is None
     assert r["stats"]["taux_reussite"] == 50.0
     assert [x["eleve"]["id"] for x in N.a_remedier(els, evs[1], nn)] == [2]
 
@@ -136,12 +136,12 @@ def test_notes_validation_resultats_bulletins():
     a.post(url, data={f"n{els[0]['id']}": "16,5", f"n{els[1]['id']}": "6", "_csrf": _jeton(a, url)})
     assert db.q("SELECT valeur FROM notes WHERE eval_id=? AND eleve_id=?", (eid, els[0]["id"]), un=True)["valeur"] == 16.5
     page = a.get(f"/classe/{cid}/resultats?periode=T1").get_data(as_text=True)
-    assert "8.25" in page or "8,25" in page
+    assert "16.5" in page or "16,5" in page
     assert a.get(f"/classe/{cid}/resultats.pdf?periode=T1").data[:4] == b"%PDF"
     assert a.get(f"/classe/{cid}/bulletin/{els[0]['id']}.pdf?periode=T1").data[:4] == b"%PDF"
     assert a.get(f"/classe/{cid}/bulletins.pdf?periode=T1").data[:4] == b"%PDF"
     assert a.get(f"/classe/{cid}/notes/{eid}/remediation.pdf").data[:4] == b"%PDF"
-    assert "3" in a.get(url).get_data(as_text=True)               # élève à 3/10 → remédiation
+    assert "3" in a.get(url).get_data(as_text=True)               # élève à 6/20 → remédiation
     # un bulletin d'un élève d'une autre classe n'existe pas
     k = _connexion("koffi", "Secret2026")
     cm2 = _cid("CM2 A")
