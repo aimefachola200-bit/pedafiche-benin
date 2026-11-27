@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.2
+- Français CE2 : 143 nouvelles fiches et leurs résumés (unités 1 à 12) pour les séances de la planification officielle qui n'avaient pas de fiche, avec le contenu du manuel « Je lis tout seul » ; 35 fiches renumérotées d'après la planification (unité, SA continue, séance = rang dans la semaine). Fiches à valider par le conseiller pédagogique.
+- Fiches importées de GESCOL/SCOLARIS 2.9.5.
+
 ## 2.5.1
 - Notes sur 20 comme dans GESCOL et SCOLARIS : barème par défaut 20, moyenne de passage 10/20, appréciations adaptées ; les évaluations déjà saisies sur un autre barème restent correctement converties.
 - Excel : modèle officiel des élèves (le même que GESCOL/SCOLARIS) à télécharger et à importer ; feuille de notes Excel par évaluation, à télécharger et à importer.
