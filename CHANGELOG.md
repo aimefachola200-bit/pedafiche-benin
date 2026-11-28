@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.3
+- Éducation artistique CE2 : 108 nouvelles fiches (chant, poésie, conte, dessin, couture) et leurs résumés, selon la planification annuelle.
+- Fiches importées de GESCOL/SCOLARIS 2.9.7.
+
 ## 2.5.2
 - Français CE2 : 143 nouvelles fiches et leurs résumés (unités 1 à 12) pour les séances de la planification officielle qui n'avaient pas de fiche, avec le contenu du manuel « Je lis tout seul » ; 35 fiches renumérotées d'après la planification (unité, SA continue, séance = rang dans la semaine). Fiches à valider par le conseiller pédagogique.
 - Fiches importées de GESCOL/SCOLARIS 2.9.5.

@@ -1,6 +1,6 @@
 [project]
 name = "pedafiche-benin"
-version = "2.5.2"
+version = "2.5.3"
 description = "Préparation de classe, progression, cahier journal, élèves, appel, carnet de notes, bulletins et évaluations (APC) pour les enseignants du Bénin"
 readme = "README.md"
 requires-python = ">=3.10"
